@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- !DOCTYPE html: html5로 문서를 작성하겠다.(Document type의 약자) -->
+
+<html lang="ko">
+    <!-- lang속성: en(english)이 들어가 있음
+    한국어로 바꾸고 싶으면 ko(korean)
+웹 크롤러한테 주로 어떤 언어로 이루어져 있는 웹페이지인지 알려주기 위해서 쓰는 것임(en으로 되어있다고 한국어 못 사용하는거 아님!)
+검색했을 떄 한국어로 되어있는 웹페이지라도 en으로 설정되어있으면 검색시에 뜨지 않을 수 있음-->
+
+
+    <meta charset="UTF-8">
+    <!-- 인코딩받식 지정
+    인코딩? 우리가 작성한 코드를 컴퓨터가 이용할 수 있도록 변경(한글 깨짐을 방지) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 모바일/반응형웹에서 인식할 수 잇는 태그 -->
+    <title>Document</title>
+    <!-- 문서의 제목 -->
+</head>
+
+<body>
+    <!-- 브라우저에서 보여주고 싶은 내용 -->
+<!-- start tag, end tag 사이에 넣고 싶은 content를 작성 -->
+ <h1>나의 HTML문서 입니다(●'◡'●)</h1> 
+ <!-- h1+tab누르면 자동완성 단축키 -->
+
+<!-- 중첩(nested) -->
+<!-- div는 블럭요소이고 span은 인라인요소 -->
+ <div style="background-color: red;">
+    <!-- div는 블럭요소라서 한줄 다 빨간색으로 웹브라우저에서 보이게되고 -->
+    span의 parent
+    <span style="background-color: blue">div의 child</span>
+    <!-- span은 인라인요소라서 자신의 크기만큼만 파란색으로 보이게된다. -->
+</div>
+</body>
+</html>

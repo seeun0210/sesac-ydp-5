@@ -1,0 +1,107 @@
+<!-- emmet:키워드로 html구조를 잡아주는 것(우리는 !tab으로 완성함) -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tag 종류</title>
+</head>
+<body>
+    <h1>tag 종류에 대해 배워보자!!</h1>
+    <h2>제목2</h2>
+    <h3>제목3</h3>
+    <h4>제목4</h4>
+    <h5>제목5</h5>
+    <h6>제목6</h6>
+    <p>여기는 본문태그 입니다!</p>
+    <br><br><br>
+    <p>여기는 본문태그 입니다!</p>
+
+    <h3>오늘의 할 일</h3>
+    <!-- ul tag type attribute: disc(default),square,circle, none -->
+    <ul type="circle">
+        <!-- ul:순서없는 목록 -->
+<li>html공부하기</li>
+<li>운동하기</li>
+<li>방 청소하기</li>
+    </ul>
+
+    
+    
+    <h3>아이스카페라떼 레시피</h3>
+    <!-- ol tag type attribute: 1(default),a(a,b,c,d...),A(A,B,C,D,...),i,I -->
+    <!-- start attribute: 시작 번호, reversed:역순으로 -->
+    <ol type="1" start="4" reversed>
+        <!-- o -->
+        <li><strong>우유</strong> <em>180ml</em> 컵에 넣기</li>
+        <li><b>얼음</b>을 가득 넣기</li>
+        <li><i>에스프레소 샷</i>을 넣어주면</li>
+        <li><u>완성!</u> <del>맛있게 드세요!</del></li>
+    </ol>
+
+
+<hr>
+<!-- 수평줄을 그어주는 태그 -->
+
+
+    <!-- 목록 태그의 중첩사용 -->
+    <h3>내가 좋아하는 음식</h3>
+    <ul>
+<li>양식
+        <ul>
+            <li>수제버거</li>
+            <li>파스타</li>
+        </ul>
+</li>
+<li>한식
+    <UL>
+        <LI>된장찌개</LI>
+        <li>청국장</li>
+    </UL>
+</li>
+<li>일식
+    <ul>
+        <li>초밥</li>
+        <li>우동</li>
+    </ul>
+</li>
+    </ul>
+    
+    <hr>
+
+    <h1>img & a tag</h1>
+<!-- 상대경로(같은 파일을 작성하더라도 접근하는 경로가 달라지는 것이고)/절대경로 (어떤 파일에 접근하더라도 경로가 같음)-->
+<!-- 
+    .:현재
+    ..:부모
+ -->
+ <!-- 현재파일에서 img폴더 안으로 가서 dog파일을 열어라(상대경로로 이미지 찾기) -->
+    <img src="./img/dog.jpeg" alt="dog 사진" width="500" height="250">
+    <!-- alt 속성이 없어도 되지만 없으면 이미지가 있었는지조차 알 수 업기 때문에 있는게 좋다(사진에 대한 설명) -->
+<!-- ./를 해주면 동일 라인에 있는 폴더와 파일이 뜸 거기에서 이미지파일을 눌러주면 된다. -->
+<!-- width:가로, height:세로 -->
+
+<!-- 위의 상대경로로 표시된걸 절대경로(root부터 시작하는 경로)로 표시 -->
+<!-- 따라서 보통 상대경로로 이미지 경로를 많이 표시한다.(현재 위치로부터 이미지 파일을 찾아가므로(사용자가 바뀌면 절대경로에서는 그걸 또 바꿔주어야하는 번거로움이 있음)) -->
+<img src="C:\Users\김세은\Documents\sesac-ydp-5\02.html\img/dog.jpeg" alt="dog 사진" width="500" height="250">
+<!-- 이미지 태그도 시작태그만 있어도 된다. -->
+
+<!-- 인터넷 주소로 이미지설정(인터넷에서 이미지파일 우클릭 ->이미지 링크 복사) -->
+<img src="https://th.bing.com/th/id/OIP.ZtrNE9GnhsrUDpGXFZ2gagHaJG?w=152&h=187&c=7&r=0&o=5&pid=1.7" alt="">
+<br>
+<br>
+<a href="https://www.naver.com/">Naver로 이동하기(default)</a>
+<!-- a태그는 content가 있어야 한다, 즉, 종료태그가 있어야한다 -->
+<!-- a tag target attribute:링크가  열릴 위치 지정
+_self(default):현재 탭에서 열기
+_blank:
+_title -->
+<br>
+<a href="https://www.naver.com/" target="_blank">Naver로 이동하기(target_blank)</a>
+<br>
+<a href="https://www.google.co.kr/" target="_blank" title="마우스 커서를 올리면 나타남!">Google로 이동하기(target_title)</a>
+<br>
+<a href="./html_start.html">html_start(default)</a>
+<!-- a tag는 인터넷 상의 주소 뿐만 아니라 폴더 내의 다른 html 문서로 이동도 가능 -->
+</body>
+</html>

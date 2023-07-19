@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form & Input tag</title>
+</head>
+<body>
+    <h1>폼 태그 종류에 대해 알아보자</h1>
+
+    <!-- from tag: 사용자로부터 입력받는 요소(input, select, textarea)들을 감싸는 태그
+    form tag의 attribute로  action, method가 있는데, "서버"와 연결된 내용->추후소개
+form 테그는 웹브라우저에 드러나지는 않는 추상적인 태그임(일종의 양식)-->
+    <form>
+<!-- 모든 input의 type에는 "name"attribute를 가질 수 있음."서버"와 연결된 내용->추후소개 -->
+Text<input type="text" disabled>
+
+<br>
+<!-- 웹접근성(시각 장애인 등)에 용이=>사용자가 편리하게 사용할 수 있다 -->
+<label for="email">이메일</label>
+<input type="text"id="email"placeholder="sesac@naver.com">
+<!-- label tag의 for attribute와 input tag의 id attribute를 맞춰주는 것이 사용자가 편리하게 사용할 수 있다! -->
+
+<br>
+<!-- textarea:여러 줄을 입력받는 element(요소)
+    문의 사항이나 댓글 작성 같은 것을 사용할 떄 textarea를 사용하는데 input과의 차이는 여러줄로 작성이 가능하다는 것이다
+cols:한 줄에 가능한 글자 수
+rows: 몇 줄 작성 가능한지 
+placeholder:도움말역학(input에서도 사용가능),사용자가 입력하면 그 글자는 사라짐
+마우스로 textarea크기 조절 가능!!-->
+<textarea name="" id="" cols="30" rows="10" placeholder="문의사항을 입력해주세요"></textarea>
+
+<br>
+<input type="color" name="" id="">
+<input type="range" name="" id="">
+<input type="file" name="" id="">
+<input type="date" name="" id="">
+<input type="datetime-local" name="" id="">
+
+
+<br>
+<br>
+<h3>당신의 취미는?</h3>
+<input type="checkbox" name="Interest" value="badminton" checked>배드민턴
+<!-- checked라는 attribute를 넣으면 default로 체크가 된다 -->
+<input type="checkbox"name="Interest"value="health">헬스
+<input type="checkbox"name="Interest"value="movie">영화보기
+<input type="checkbox"name="Interest"value="lying">누워있기
+<!-- check box와 radio의 경우 같은 name 속성값을 부여해 카테고리화를 해주어야 함 -->
+<!-- checkbox에서 
+    name을 갖게 해주면 카테고리 분류가되어 client에서 서버로 넘어감 
+    value는 어떤 값을 선택했는지 서버로 넘어가게 됨
+    name과 value는 백엔드에서 중요하다!!-->
+    
+    <br>
+    <input type="radio" name="gender" id="f"><label for="genderF">여자</label>
+    <input type="radio" name="gender" id="m"><label for="genderM">남자</label>
+    <!-- name을 같게 설정해주어야 여러개 중에 하나만 선택할 수 있게 된다(name을 설정하지 않으면 여러개 설정가능하게 됨(잘못사용)) 
+    value를 설정해줘야 user가 어떤 값을 선택했는지 back에서 알 수 있다-->
+
+    <br>
+    <!-- input type으로 버튼을 만들수도 있고 button tag로도 버튼을 만들 수 있다. 둘을 동일하다-->
+    <!-- 단순한 버튼 -->
+    <input type="button" value="버튼1">
+    <button>버튼2</button>
+
+    <br>
+    <!-- 폼을 "제출" 버튼 -->
+    <input type="submit" value="제출1">
+    <button>제출2</button>
+    <!-- 위의 버튼과 제출의 차이는 백에서 자세히 다뤄보자! -->
+    
+    <br>
+ <select name="flower" id=""> 
+    <optgroup label="red-flower"> 
+        <option value="a">장미</option>
+        <option value="b"selected>동백꽃</option>
+        <!-- selected를 쓰면 dropbox에서 동백꽃이 선택되어 있다. -->
+        <option value="c">빨간튤립</option>
+    </optgroup>
+
+    <optgroup label="white-flower">
+<option value="a">벚꽃</option>
+        <option value="b"selected>하얀튤립</option>
+        <!-- selected를 쓰면 dropbox에서 하얀백꽃이 선택되어 있다. -->
+        
+    </optgroup>
+    </optgroup>
+       
+    </select>
+</form>
+
+</body>
+</html>
