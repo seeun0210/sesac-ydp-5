@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <!-- border, align, bgcolor 빨간색 글씨인 이유? 
+        선을 그린다? = 꾸민다 -> CSS가 하는 것이 바람직 
+     -->
+    <table border="1" width="150" height="150" align="center" bgcolor="skyblue" bordercolor="red">
+        <caption>
+            <h3>My Table</h3>
+        </caption>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+
+    <!-- cellspacing, cellpadding -->
+    <!-- cellspacing: border간격을 조정
+    cellpadding:셀 내부의 간격 지정 -->
+    <h1>가격표</h1>
+    <table border="1" cellspacing="10" cellpadding="15">
+      <tr>
+        <!-- th:테이블의 제목칸을 의미(bold체) -->
+        <th>메뉴</th>
+        <th>가격</th>
+        <th>비고</th>
+      </tr>
+      <tr>
+        <td>국물떡볶이</td>
+        <td>5000</td>
+        <td>2인 이상 주문 가능</td>
+      </tr>
+      <tr>
+        <td>참치김밥</td>
+        <td>4000</td>
+        <td>x</td>
+      </tr>
+      <tr>
+        <td>치즈김밥</td>
+        <td>4000</td>
+        <td>간, 허파 있음</td>
+      </tr>
+    </table>
+
+    <hr>
+    <h1>가격표 new</h1>
+    <table border="1" cellspacing="0" cellpadding="15">
+        <tr>
+            <!-- th:테이블의 제목칸을 의미(bold체) -->
+            <th>메뉴</th>
+            <th>가격</th>
+            <th>비고</th>
+          </tr>
+          <tr>
+            <td>국물떡볶이</td>
+            <td>5000</td>
+            <td>2인 이상 주문 가능</td>
+          </tr>
+          <!-- 
+            colspan:가로를 합치는 것(열을 병합하는것)
+            rowspan:세로를 합치는 것(행을 병합하는 것)
+            헷갈리지 않게 주의!!
+         -->
+          <tr>
+            <td>참치김밥</td>
+            <td rowspan="2">4000</td>
+            <!-- 이 행부터2개의 행을 합치겠다 -->
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>치즈김밥</td>
+            <!-- 여기에 있던 원래 행이 합쳐진다(원래 td어쩌고를 지워야한다.) -->
+            <td>신메뉴</td>
+          </tr>
+          <tr>
+            <!-- colspan="3" 3개의 행을 함치겠다! -->
+            <td colspan="3">순대(품절)</td>
+          </tr>
+
+    
+</body>
+</html>
+
+
+
+
+
+
