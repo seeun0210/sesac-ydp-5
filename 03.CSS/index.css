@@ -1,0 +1,6 @@
+li{
+    font-size: 30px;
+    color: white;
+    background-color: black;
+    /* px의 default값은 16px이다. */
+}

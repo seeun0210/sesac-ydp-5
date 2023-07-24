@@ -1,0 +1,39 @@
+/* 주석(ctrl+/) */
+/*  *:전체선택자 */
+*{
+    color:navy;
+
+}
+
+/* 태그명:태그선택자 */
+h1{
+    background-color:pink;
+
+}
+
+
+/* .클래스명:클래스선택자 */
+.second{
+    background-color:aquamarine;
+}
+.small{
+font-size:30px;
+}
+.big{
+    font-size;60px;
+}
+
+/* #아이디명:아이디 선택자 */
+#first{
+    background-color:lightgreen;
+}
+
+/* 아이디vs 클래스
+-class:그룹
+-id:고유
+
+ex.
+"students"라는 클래스 이름은 여러 요소에 사용될 수 있다.
+"teacher"라는 아이디 값은 한 요소에만 사용 되어야 한다.
+
+ */

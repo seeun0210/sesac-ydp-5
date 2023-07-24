@@ -1,0 +1,42 @@
+/* 하위(후손) 선택자 :공백(띄어쓰기) */
+body section{
+    /* 경계선: 두께 선스타일 선색상 */
+    border:1px solid blue;
+}
+
+body section h2{
+    border:1px solid green;
+}
+/* 자식 선택자 : > */
+.first>h2{
+    color:white;
+    background-color:navy;
+}
+.second>h2{
+    color:navy;
+    background-color:white;
+}
+
+/* 인접 형제 선택자 : + */
+#kong+li{
+    background-color:aqua;
+}
+/* kong이라는 아이디 바로 뒤에 li태그가 있는 것이 아니라 span태그가 있어서 먹히지 않음(html에서 span태그를 주석처리하니까 된다!) */
+
+/* 일반 형제 선택자 : ~ */
+#kong~li{
+    color:Red;
+}
+/* 얘는 바로 뒤에 있지 않아도 뒤에만 있기만 하면 모든 li에 적용된다 */
+
+/* CSS 색상 */
+/* 
+1.색상 키워드 : red, green,...
+2. 16진수 코드(0~9, A,B,C,D,E,F)-> #XXXXXX
+#ff(R)ff(G)ff(B):white
+#000000:black
+3. rgb함수 (0~255,0~255,0~255)
+-rgb(255,255,255):white
+-rgb(0,0,0):black
+예) Red=#ff0000=rgb(255,0,0)
+*/
