@@ -111,7 +111,7 @@ console.log(multifly(2, 2));
 
 //javascript 함수 실습(2)
 function square(num) {
-  console.log(num * num);
+  console.log(num ** 2);
 }
 square(4);
 square(11);
