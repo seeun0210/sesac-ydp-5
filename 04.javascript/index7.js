@@ -69,8 +69,9 @@ while (true) {
 let sum3 = 0;
 for (let i = 0; i < 100; i++) {
   if (i % 2 === 0) {
-    continue; //이번 회차는 스킵할게요
+    continue; //이번 회차는 스킵할게요(짝수일때 더하는거 안함)
   }
   sum3 += i;
   console.log(i, sum3);
+  //0부터
 }
