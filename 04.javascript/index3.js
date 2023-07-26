@@ -254,7 +254,7 @@ console.log(Number(n1), typeof Number(n1)); //true=1
 console.log(Number(n2), typeof Number(n2)); //false=0
 console.log(Number(n3), typeof Number(n3));
 console.log(Number(null)); //null=0
-console.log(Number(undefined), typeof Number(undefined)); //Nan(숫자가 아님)
+console.log(Number(undefined), typeof Number(undefined)); //Nan(Not a number:숫자가 아님), number?? 그냥 좀 이상하네~~
 
 console.log(parseInt(n3, 10)); //parseInt는 문자열을 풀어서(parsing) 정수로 변환해줌
 //=>n3값을 10진수의 정수(int)로 바꾸겠다=>123
