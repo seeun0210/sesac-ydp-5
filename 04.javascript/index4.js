@@ -87,5 +87,9 @@ console.log(num); //11
 console.log(result); //10(리절트에 대입하고 더함)
 
 result2 = ++num2; //전치연산자(prefix operator)(먼저 연산 후 변수에 대입)
-console.log(num2);
+console.log(num2); //11
 console.log(result2); //11(먼저 더하고 리절트값에 대입)
+
+//'num+=1'과 num++는 같은 의미임
+//마찬가지로 'num-=1'과 'num--도 같은 의미
+//num+=1을 더 많이 사용함(반복문에서만 num++사용)
