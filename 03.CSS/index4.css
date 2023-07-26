@@ -1,0 +1,84 @@
+.div1{
+    width:100px;
+    height:100px;
+    background-color:aquamarine;
+}
+/* :hover :요소에 마우스를 올렸을 떄 */
+.div1:hover{
+    background-color:hotpink;
+height:150px;
+}
+/* :active :요소에 마우스로 클릭하고 있을 떄
+hover와 active가 겹치면 active가 우선순위가 더 높다 */
+.div1:active{
+    background-color:brown;
+    width:150px;
+}
+/*  :focus :요소에 포커즈(커서가 깜빡)가 됐을 떄 */
+input:focus{
+    background-color:blueviolet;
+    color:white;
+    outline-color:yellowgreen;
+    /* outline-color:테두리 색 바꿔줌 */
+}
+.links>a:hover{
+    background-color:coral;
+}
+.links>a:visited{
+    color:gray;
+    /* color: gray=#cccccc=#ccc */
+}
+
+/* 요소 상황에 따른 가상 선택자 */
+.zoo >*{
+    background-color:green;
+    color:white;
+}
+
+/* E:last-child :E가 마자막 요소라면 */
+.zoo>li:last-child{
+    background-color:black;
+}
+
+/* E:first-child :E가 첫 요소라면 */
+.zoo>*:first-child{
+    background-color:red;
+}
+/* 후보가 1개 */
+/* E:not(XYZ) :XYZ가 아닌 요소 선택 */
+.zoo>*:not(div){
+    background-color:pink;
+}
+/* 후보가 6개=> 따라서 h1에 대해서 not(div)의 우선순위가 first-child에 밀렸기 때문에 pink가 아니라 red로 반영됨 */
+/* E:nth-child(n):E가 n번째 요소라면 선택
+여기서 n은 꼭 숫자일 필요는 없음
+만약 2n이라면 2의 배수
+3n+1이라면 3으로 나눈 나머지가 1인 수 */
+.zoo>*:nth-child(2){
+    background-color:aqua;
+}
+
+/* 가상요소 선택자 */
+.box::before{
+    content:"택시~";
+    font-weight:bold;
+    color:red;
+
+}
+.box::after{
+    content:"빨리!!";
+    font-weight:bold;
+    color:blue;
+}
+
+/* 실습4.속성 선택자 */
+[disabled]{
+    background-color:red;
+
+}
+[placeholder="이름"]{
+    background-color:orange;
+}
+input:not([placeholder]){
+    background-color:blue;
+}

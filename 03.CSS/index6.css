@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 1000px;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+}
+/* static:기본값
+    -기본값이기 때문에 적용하지 않아도 이미 적용됨
+    -인라인요소라면 왼쪽에서 오른쪽으로 쌓잉
+    -블럭요소라면 위에서 아래로 쌓임 
+*/
+.position-static {
+    background-color: pink;
+    position:static;
+}
+
+
+/* relative:상대위치
+일반적인 흐름에 따라 배치, top, bottom,left,right 중 하나 이상 작성 해야함
+원래 있어야 하는 위치기준으로부터 top, bottom, left, right만큼 씩 이동 */
+.position-relative {
+    background-color: aquamarine;
+    position: relative;
+    left:200px;
+    /* 원래 위치부터 왼쪽으로 이동(보기에 오른쪽으로 이동한 것 처럼 보임) */
+}
+
+/* absolute:절대위치
+    -누구를 기준? position속성을 갖는 제일 가까운 조상기준
+    -포지션 속성을 갖는 조상이 없다면 body태그를 기준으로 삼음
+    -> 특정 요소를 기준으로 삼아서 top,bottom,left,right만큼 떨어지겠다.
+ */
+.position-absolute {
+    background-color: gold;
+    position:absolute;
+    top:50px;
+    left:50px;
+    /* body tag로 부터 위로 50px, 왼쪽으로 50px만큼 떨어지겠다 */
+}
+/* fixed: 고정 위치
+viewport(브라우저의 화면 전체)를 기준으로 특정 위치 배치
+브라우저에서 항상 고정되엉 있는 거에 fixed를 사용 
+스크롤 해도 사라지지 움직이지 않는다!!!*/
+.position-fixed {
+    background-color: coral;
+    position:fixed;
+    top:0;
+    right:0;
+    /* 위쪽 여백 없애고 오른쪽 여백 없어짐 */
+}
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS 사용해보기</title>
+
+    <!-- js 파일 불러오기 -->
+    <!-- 방법1) head 태그 > script 태그 안에 작성 -->
+     <!-- <script> 
+        console.log("Connected!");
+    </script> -->
+    <!-- 방법2) head 태그 > script 태그의 src 속성에 js 파일 경로 -->
+     <!-- <script src="./index2.js"></script>  -->
+
+    <!-- 
+        ** 방법1 & 방법2
+        <head> 안에 <script> 태그를 넣을 경우; 웹 페이지를 불러오기 전이 이미 동작
+        앞서 HTML 강의에서 들었듯이 head 태그는 사람들에게 직관적으로 보이지 않는 내용, body 태그는 사람들에게 직관적으로 보이는 태그임
+        head 안에 들어가 있는 <script>의 내용이 너무 길면 흰 화면이 오래 보여 오류 처럼 보일 수도
+        "페이지에 들어가려 하는데 흰 화면에 로딩만 계속되다 페이지가 나오는 걸 본 경우가 있지 않느냐?"
+    -->
+  </head>
+  <body>
+    <h1>JavaScript를 배워보자!</h1>
+
+    <!-- js 파일 불러오기 -->
+    <!-- 방법3) body 태그 > script 태그 안에 작성 -->
+    <!-- <script>
+        console.log("Connected!");
+    </script> -->
+    <!-- 방법4) body 태그 > script 태그의 src 속성에 js 파일 경로 -->
+    <!-- <script src="./index2.js"></script> -->
+
+    <!-- 
+        ** 방법3 & 방법4
+        <body> 안에 <script> 태그를 넣을 경우; 웹 페이지를 불러온 후 동작
+        html 코드는 위에서부터 순차적으로 읽기 때문 
+        그럼 이게 더 좋지 않느냐? 라고 할 수 있는데, 그건 아님
+        먼저 버튼이 보여지고, 아직 script 가 읽혀오기 전에 버튼을 누르면 script가 불러와지기 전이기 때문에 오류가 난 것처럼 보임
+        무엇이 더 좋다고 말할 수 없으니, 알아서 잘 생각해서 사용할 것
+    -->
+  </body>
+</html>

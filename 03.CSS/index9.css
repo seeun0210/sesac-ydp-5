@@ -1,0 +1,82 @@
+.beach1{
+    /* 원래위치를파악하기 위한 배경색 */
+    background-color:aliceblue;
+    width:400px;
+    height:250px;
+
+    position: absolute;
+    top: 200px;
+    left:200px;
+
+
+
+
+}
+img{
+    /* 크기의 단위로 %를 사용
+    :부모 요소의 n를 차지 */
+    width:100%;
+    height:100%;
+
+}
+img:hover{
+    /* transition속성
+    -transform속성과 함께 자주 쓰임
+    -CSS속성이 변화할 때 일정 시간 동안 변화가 일어나도록
+    =>img에 hover를 했을 때 transform에 적힌 속성이 n초 동안 변화가 있게 함 */
+    transition:transform 0.3s;
+    
+    
+    /* 
+    skew()
+    - 원하는 각도만큼 객체를 기울임
+    - x, y축 나누어 속성 부여 가능
+        - skewX(x_deg)
+        - skewY(y_deg)
+    - x, y 동시 사용원하는 경우
+        - skew(x_deg, y_deg)
+    */
+      /* transform: skewX(30deg);   */
+     /* transform: skewY(30deg);  */
+     /* transform: skew(30deg, 30deg);  */
+
+
+
+    /*
+        scale()
+        - 크기 조절 (확대, 축소)
+        - 1보다 큼: 확대
+        - 0~1: 축소=0.n만큼 확대
+    */
+     /* transform: scaleX(2);  */
+    /* transform: scaleY(2); */
+     /* transform: scale(2, 0.5);  */
+
+
+
+    /* 
+        rotate()
+        - 회전
+        - 주어진 각도만큼 회전
+        - rotateX(): x축을 기준으로 회전
+        - rotateY(): y축을 기준으로 회전
+        - rotate(): 시계방향으로 회전 (deg > 0)
+    */
+    /* transform: rotateX(45deg);  */
+    /* transform: rotateY(45deg); */
+    /* transform: rotate(45deg);  */
+    
+
+
+    /* 
+        translate()
+        - 이동
+        - translateX(): x축을 기준으로 이동
+        - translateY(): y축을 기준으로 이동(여기에서 특이한 점은 아래쪽으로 수학에서와 다르게 아래로 갈수록 y값이 증가한다)
+        - translate(): x, y축을 기준으로 이동
+        */
+    /* transform: translateX(100px);  */
+    /* transform: translateY(100px); */
+    /* transform: translate(100px, 100px);  */
+    /* transform: translate(-100px, -100px); */
+}

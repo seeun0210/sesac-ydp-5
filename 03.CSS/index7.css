@@ -1,0 +1,50 @@
+div {
+    width: 100px;
+    height: 100px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+
+    position:absolute;
+    /* body tag를 기준으로 위치를 잡게 된다 */
+
+}
+/* 
+    z-index:겹치는 요소에 대한 순서를 결정
+    -숫자 값: 양수, 0 ,음수
+    -숫자 값이 클수록 더 위에 쌓인다=가장 앞에 놓인다
+ */
+.div1 {
+    top: 100px;
+    left: 100px;
+    background-color: red;
+    z-index:8;
+}
+
+.div2 {
+    top: 140px;
+    left: 140px;
+    background-color: orange;
+    z-index:7;
+}
+
+.div3 {
+    top: 180px;
+    left: 180px;
+    background-color: yellow;
+    z-index:10;
+}
+
+.div4 {
+    top: 220px;
+    left: 220px;
+    background-color: green;
+    z-index:4;
+}
+
+.div5 {
+    top: 260px;
+    left: 260px;
+    background-color: blue;
+    z-index:12;
+}

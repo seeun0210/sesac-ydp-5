@@ -1,0 +1,140 @@
+.container{
+    width:300px;
+    height:400px;
+    background-color:#333;
+    margin:0 auto;
+    /*여기에서 auto는 좌우방향으로 가운데에 배치! auto는 width가 설정되어 있어야 계산해서 쓸 수 있음*/
+    display:flex; 
+    /* flex를 하니까 자식요소들이 나란하게 배열됨 */
+    /* 다른 display요소들은 적용된 그 요소가 바뀌는데 display:flex는 그 자식요소들이 바뀌는 것!!⭐⭐⭐ */
+    /* 부모요소에 flex를 선언하면, 아이템(자식)이 가로 방향으로 배치됨 */
+
+    /* flexbox기본용어 */
+    /*
+    -주축(main axis):아이템의 배치 방향
+    -교차축(cross axis) :주축의 수직축
+     */
+
+     /* flex-direction:flex방향을 설정(주축방향 설정) 
+     -row(default):수평정렬(좌->우)
+     -row-reverse(우->좌)
+     -column:수직정렬(위->아래)
+     -column-reverse:수직정렬(아래->위)*/
+     /* row일 떄 */
+     /* flex-direction:row; */
+     /* flex-direction:row-reverse; */
+     /* column일 때 */
+     /* flex-direction:column */
+     /* flex-direction:column-reverse*/
+
+
+     /* justify-content:주축 아이템을 어떻게 배치 할 것인가?
+    -flex-direction이 수평정렬; 주축=row(가로)
+    -flex-direction이 수직정렬; 주축=column(세로) */
+     /* justify-content: flex-start; *//*default값임 달라지는 거 없음*//*아이템을 주축에 대해서 start지즘을 기준으로 나열*/
+    /* justify-content: flex-end; *//*아이템을 주축으에 대해서 en 지즘을 기준으로 나열*/
+    /* justify-content: space-between; *//*양 끝으로 붙여서 정렬하고 나머지 영역을 공평하게 나누어짐*/
+    /* justify-content: space-around; *//*between과 비슷하지만 모든 영역이 같은 margin을 같게 된다(양 끝의 여백이 1이라면 사이사이의 여백은 2)*/
+    /* justify-content: space-evenly; *//*모든 간격의 여백이 동일하게 됨, 양쪽 끝에 여백이 around와 달리 같음 (양끝을 포함한 모든 여백이 1)*/
+
+
+    /* align-items:교차축에 대해서 아이템을 어떻게 배치할 것인가? 
+    -flex-direction이 수평정렬; 교차축=row(세로)
+    -flex-direction이 수직정렬; 교차축=column(가로)*/
+ /* align-items:stretch; *//*default값. flex-direction:row(column)로 설정했을 경우 items에 대해서 높이(너비)가 지금은 정해져 있지만 height(width)값을 없애개 되면 위 아래(좌우)로 늘어남,container의 교차축을 채우기 위해 늘림*/
+/*  align-items:flex-start;*//*교차축에 대하여 시작점으로 정렬*/
+/*  align-items:flex-end;*//*교차축에 대하여 끝에서부터 정렬*/
+/*  align-items:center;*//*교차축에 대하여 가운데 정렬*/
+/*  align-items:baseline;*//*글자에 밑줄을 했을 때 그 라인을 동일하게 맞추어 줌(글자의 크기가 다를 때 이렇게 하면 네모칸의 크기가 같을 경우 위의 높이가 다 달라지겠지?*/
+
+
+/* 😁정리
+display:flex;
+=>flex-direction: ;설정
+=>justify-content: ;
+=>align-items: ;설정
+ */
+
+
+
+ /* flex-wrap:줄바꿈 (개행)처리
+ ->컨테이너(부모)가 한 줄에 아이템을 다 수용하지 못할 때, 줄바꿈 관련 설정
+    -nowrap(default):줄바꿈 안함
+    -wrap:줄바꿈 함
+    -wrap-reverse:줄바꿈 하는데 아이템을 역순 배치 */
+ /* flex-wrap:nowrap; */
+ /* flex-wrap:wrap */
+ /* flex-wrap:wrap-reverse */
+
+
+ /* align-content: 여러 행에 대한 정렬(align-items와 구분!!)
+    (조건) flex-wrap:wrap or wrap-reverse상태에서(그러니까 nowrap(default)이 아닌상태) 아이템이 두 줄 이상일 떄 수직축 방향 설정함 */
+    /* align-content: stretch; */
+    /* align-content: flex-start; */
+    /* align-content: flex-end; */
+    /* align-content: center; */
+    /* align-content: space-between; */
+    /* align-content: space-around; */
+    /* align-content: space-evenly; */
+}
+.items{
+width:100px;
+height:100px;
+font-size: 30px;
+text-align:center;
+line-height:100px;
+/* line-height:100px를 통해서 글자가 높이 측면에서도 칸의 중앙으로 올 수 있도록 함 */
+
+}
+.item1{
+background-color: pink;
+}
+.item2{
+    background-color: skyblue;
+    }
+.item3{
+    background-color: yellowgreen;
+    }
+.item4{
+background-color:orange;
+    }
+.item5{
+    background-color:red;
+}
+
+/* div안에 div 정 가운데 정렬 */
+.outer{
+    width:300px;
+    height:300px;
+    background-color: aquamarine;
+
+}
+.inner{
+    width:100px;
+    height:100px;
+    background-color:pink;
+}
+
+/* ver1. position.transform */
+.outer1{
+    position:relative;
+
+}
+.inner1{
+    position:absolute;
+    top:50%;
+    left:50%;
+    /* 이렇게 하면 왼쪽 상단 모서라가 중앙에 위치함 */
+    transform:translate(-50%,-50%);
+    /* 자신이 갖고 있는 크기만큼의 -50%씩 만큼 이동함 */
+}
+
+/* ver2. flex */
+/* outer2에 대해서만 css추가해도 충분: flex는 자식요소를 바꾸는 것이기 때문!! */
+.outer2{
+ display:flex;
+ flex-direction:row;
+ align-items:center;
+ justify-content: space-evenly;
+
+}

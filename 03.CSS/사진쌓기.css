@@ -1,0 +1,16 @@
+.beach1{
+transform:skew()
+}
+.beach2{
+    position:absolute;
+    left:500px;bottom:450px;
+}
+.beach3{
+position:relative;
+left:1000px;bottom:400px;
+}
+.img{
+    width:700px;
+    height:400px;
+    overflow:hidden;
+}
