@@ -1,5 +1,5 @@
 //반복문
-
+/*
 //for문
 for (let i = 0; i < 10; i++) {
   //i=0~9까지 10번 출력됨
@@ -74,4 +74,40 @@ for (let i = 0; i < 100; i++) {
   sum3 += i;
   console.log(i, sum3);
   //0부터
+}
+*/
+//실습 1. 합계구하기
+/*let sum = 0;
+for (let i = 0; i <= 100; i++) {
+  if (i % 2 == 0 || i % 5 == 0) {
+    sum += i;
+  }
+}
+console.log(sum);
+*/
+//실습 2. 13의 배수이자 홀수를 찾아보자
+/*
+for (let i = 0; i <= 10000; i++) {
+  if (i % 13 === 0 && i % 2 === 1) {
+    console.log(`${i}는 13의 배수이면서 홀수 입니다`);
+  }
+}
+*/
+//실습2(심화)
+/*
+let num = Number(prompt('13의 배수이면서 홀수인 숫자를 찾아봅시다!'));
+while (!(num % 13 === 0 && num % 2 === 1)) {
+  num = Number(prompt('숫자를 다시 입력하세요.'));
+  if (num % 13 === 0 && num % 2 === 1) {
+    alert(`${num}은 13의 배수이자 홀수입니다!`);
+    break;
+  }
+}
+*/
+
+//실습3. 구구단 만들기
+for (let i = 1; i <= 9; i++) {
+  for (let j = 1; j <= 9; j++) {
+    console.log(`${i}X${j}=${i * j}`);
+  }
 }
