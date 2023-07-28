@@ -49,3 +49,22 @@ console.log(document.querySelectorAll('.others'));
 console.log(document.querySelectorAll('#green')); //하나 인것도 배열에 담아서 가져옴
 console.log(document.querySelectorAll('div'));
 console.log(document.querySelectorAll("[name='id']"));
+
+//유사 배열(HTMLCollection, NOdelist)
+//[]식으로 생긴 배열을 의미. 배열은 아님!
+//index와 length속성은 갖지만 배열은 아니다!!!!!!!
+//배열과 달리 사용가능한 매서드가 제한됨.(이것도 HTMLCollection과 Nodelist에 쓸 수 있는 매서드가 또 다르다)
+
+//Nodelist-> forEach()반복문 사용이 가능하다 (HTMLCollection은 forEach()사용 못함)
+document.querySelectorAll('.pink').forEach((elem) => console.log(elem));
+
+//HTMLCollection에서 forEach()를 사용하려면? Array로 변경(Array.from())
+Array.from(document.getElementsByClassName('.pink')).forEach((elem) =>
+  console.log(elem)
+);
+
+//for of 반복문
+const pinks = document.querySelectorAll('.pink');
+for (let pink of pinks) {
+  console.log(pink);
+}
