@@ -106,20 +106,24 @@ p2.classList.add('p-2');
 p3.classList.add('p-3');
 
 container.append(p2, p3); //여러개 추가도 가능!
+//container.appendChild(p2)
+//container.appendChild(p3)-> appendChild는 한개씩만 추가가능함
 
-//x.prepend(y):x요소의 맨 처음 자식으로 y요소 추가
+// x.prepend(y): x요소의 맨 처음 자식으로 y 요소가 추가
 const li1 = document.createElement('li');
-li1.textContent = '킹카';
+li1.textContent = '캉가';
 friends.prepend(li1);
 const li0 = document.createElement('li');
 li0.innerHTML = '<b>친구들을 소개합니다</b>';
 friends.prepend(li0);
 
-//요소 삭제
-//x.remove():x요소를 살제
-//x.removeChild(y):x의 자식요소인 y가 삭제
-const firstli = document.querySelector('li'); //가장 첫번째 li태그가 잡힘
-firstli.remove(); //친구들을 소개합니다가 없어짐
+// 요소 삭제
+// x.remove(): x 요소 삭제
+// x.removeChild(y) : x의 자식요소인 y가 삭제
+const firstLi = document.querySelector('li');
+console.log(firstLi); // 친구들을 소개합니다 li 태그
 
-const ul = li.parentNode; //ul태그
-ul.removeChild(li.tigger);
+const ul = firstLi.parentNode; // ul 태그
+ul.removeChild(firstLi);
+
+// firstLi.remove();

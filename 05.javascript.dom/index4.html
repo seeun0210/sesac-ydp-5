@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js DOM : addEventListener</title>
+    <script defer src="./index4.js"></script>
+    <style>
+      body {
+        height: 2000px;
+      }
+      .btn {
+        width: 80px;
+        height: 35px;
+        border-radius: 13px;
+        text-align: center;
+        line-height: 35px;
+        font-weight: 700;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      .btn--black {
+        background-color: rgb(44, 44, 44);
+        color: #fff;
+      }
+
+      .btn--green {
+        background-color: green;
+        color: yellow;
+      }
+
+      .btn--blue {
+        background-color: rgb(73, 73, 255);
+        color: bisque;
+      }
+
+      .btn--red {
+        background-color: orangered;
+        color: #fff;
+      }
+
+      .pos {
+        width: 150px;
+        height: 150px;
+        position: fixed;
+        bottom: 300px;
+        transition: 2s;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 onClick="clickH1();">js 이벤트</h1>
+    <div class="btn btn--black">버튼1</div>
+    <div class="btn btn--green">버튼2</div>
+    <div class="btn btn--blue">버튼3</div>
+    <div class="btn btn--red">버튼4</div>
+    <div id="container"></div>
+
+    <div class="btn btn--red pos">안녕하세요</div>
+
+    <button>Click Me</button>
+    <input type="text" />
+
+    <h2>Todo list</h2>
+    <form id="todo-form">
+      <input type="text" name="todo" />
+      <button>Add</button>
+    </form>
+    <ul class="todos"></ul>
+
+    <hr />
+    <h2>변경 이벤트</h2>
+    <input type="text" id="change-input" />
+    <div class="intro"></div>
+  </body>
+</html>
