@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS DOM - 요소 선택</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        border: 1px solid #333;
+        margin: 10px;
+        text-align: center;
+        line-height: 102px;
+      }
+
+      .pink {
+        background-color: pink;
+      }
+
+      #green {
+        background-color: green;
+      }
+
+      #red {
+        background-color: red;
+      }
+    </style>
+    <!-- <script src="./index2.js"></script> -->
+    <!-- 이렇게 쓰면 js에서 document요소 선택을 하려고 해도 이 이후에 있는 요소에 대해서는 선택 할 수 없음 -->
+    <script defer src="./index2.js"></script>
+    <!-- defer: 페이지가 로드된 후에 외부 스크립트를 실행 -->
+    <head>
+  <body>
+    <h1>DOM 연습</h1>
+    <div class="pink">1[0]</div>
+    <div class="pink">2[1]</div>
+    <div class="pink">3[2]</div>
+    <div class="pink">4[3]</div>
+    <div class="others" id="green"></div>
+    <div class="others" id="red"></div>
+
+    <input type="text" name="id" />
+    <input type="button" name="id" value="click" />
+
+    <script src="./index2.js"></script>
+  </body>
+</html>

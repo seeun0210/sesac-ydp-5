@@ -134,4 +134,4 @@ console.log(Math.floor(Math.random() * 11));
 console.log(Math.ceil(Math.random() * 100));
 
 //20~22
-console.log(Math.floor(Math.random() * 3 + 20));
+console.log(Math.floor(Math.random() * 3 + 20)); //숫자 3개가 나와야하니까 3을 먼저 곱하고 시작하는 수를 더해줌
