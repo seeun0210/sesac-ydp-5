@@ -155,9 +155,29 @@ console.log(arr_find); //4출력(배열의 형태X)
 //퀴즈
 const words = ['dog', 'cat', 'rabbit', 'apple', 'wow'];
 
-// 1. 글자 수가 3개 초과인 단어만 필터링
+// 1. 글자 수가 3개 초과인 단어만 필터링->str.length속성
 const words_filter1 = words.filter((e) => e.length > 3);
 console.log(words_filter1);
-// 2. 글자에 'a' 문자가 포함되어 있는 단어만 필터링
-const words_filter2 = words.filter((e) => e.includes('a'));
+// 2. 글자에 'a' 문자가 포함되어 있는 단어만 필터링->includes()매서드
+const words_filter2 = words.filter((e) => e.includes('a')); //filter는 words배열에서 'a'를 갖는 문자를 갖는 원소들을 반환하여 새로운 배열을 생성함
 console.log(words_filter2);
+//⭐map과 filter의 반환 값에 대한 차이점 알아두기!(헷갈릴 수 있음)
+const words_map = words.map((e) => e.includes('a')); //includes()는 true 또는 false를 반환하는 함수
+//그러므로 배열 words의 조건인 'a'를 포함하면 true를 반환하고, 없으면 false를 반환한다.
+//그래서 .map()을 쓰면 요소의 연산 결과인 true, false를 새로운 배열의 원소로 갖게 된다.
+console.log(words_filter2);
+
+//cf) for in 반복문: 객체에서 사용!
+//객체의 key를 반복할 수 있는 구문!
+const me = {
+  name: 'seeun',
+  gender: 'f',
+  hobby: 'health',
+};
+//여기에서 key는 name, gender, hobby
+//객체에서 key는 순서가 있는 것도 아니고 어떤게 추가 될지도 모름
+
+for (let key in me) {
+  console.log(key, me[key]); //각 key의 keyvalue에 접근하기 위해서는 점표기법이 아닌 대괄호 표기법을 통해서 접근해야함.(점표기법은 key라는 key가 있을 때 사용한다)
+  console.log(key, me.key); //이렇게 하면 me.key에서 undefined가 뜸! 왜냐하면 'key'라는 object의 key가 없기 때문임
+}
