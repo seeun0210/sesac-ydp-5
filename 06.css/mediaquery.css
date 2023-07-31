@@ -1,0 +1,50 @@
+.header {
+  background-color: palegoldenrod;
+  height: 120px;
+}
+
+.main {
+  background-color: aqua;
+  display: flex; /*flex의 default값은 row임*/
+}
+.section {
+  background-color: cornflowerblue;
+  width: 80%;
+}
+
+.aside {
+  background-color: hotpink;
+  width: 20%;
+}
+
+.footer {
+  background-color: chartreuse;
+}
+
+@media (max-width: 480px) {
+  /*viewport width가 480px이하일 떄 이 블럭의 내용을 적용하겠다*/
+  .main {
+    flex-direction: column-reverse; /*화면이 작아지면 flex방향을 세로로 바꾸겠다*/
+    /*reverse까지 하게 되면 순서도 바꾼다*/
+  }
+  .header {
+    height: 60px;
+  }
+  .aside {
+    width: 100%;
+    /*display: none;*/
+    /*화면이 작아지면 없애겠다*/
+  }
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    background-color: bisque;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  body {
+    background-color: tomato;
+  }
+}
