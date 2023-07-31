@@ -36,14 +36,16 @@
     /*화면이 작아지면 없애겠다*/
   }
 }
-
+/*가로 세로 모드는 개발자도구에서 장치 선택해서 가로 세로 회전으로 확인할 수 있음*/
 @media screen and (orientation: landscape) {
+  /*가로모드*/
   body {
     background-color: bisque;
   }
 }
 
 @media screen and (orientation: portrait) {
+  /*세로모드*/
   body {
     background-color: tomato;
   }

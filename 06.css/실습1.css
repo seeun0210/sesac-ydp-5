@@ -1,0 +1,24 @@
+p {
+  background-color: green;
+}
+@media (min-width: 500px) {
+  body {
+    background-color: skyblue;
+  }
+}
+@media (max-height: 300px) {
+  body {
+    background-color: orange;
+  }
+}
+@media (max-height: 300px) {
+  p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+}
+@media (min-height: 500px) {
+  body {
+    background-color: green;
+  }
+}

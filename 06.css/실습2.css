@@ -1,0 +1,29 @@
+.main {
+  width: 1000px;
+  height: 1000px;
+
+  display: flex;
+}
+div {
+  display: inline-block;
+}
+.div1,
+.div2,
+.div3 {
+  width: 200px;
+  height: 200px;
+  margin-right: 100px;
+  border-radius: 4px;
+  background-color: black;
+
+  flex-direction: row;
+}
+@media (max-width: 700px) {
+  .div1,
+  .div2,
+  .div3 {
+    flex-direction: column;
+    background-color: skyblue;
+    margin-bottom: 100px;
+  }
+}

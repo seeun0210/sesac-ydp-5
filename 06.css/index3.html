@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid System</title>
+
+    <!-- Bootstrap CDN (css) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./index3.css" />
+    <!-- Bootstrap CDN (js) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>Grid System</h1>
+    <!-- layout:container, grid, columns -->
+    <!-- grid: 2차원(flex가 1차원) -->
+    <!-- bootstrap에서 12개의 영역을 기준으로 나눠어짐 그래서 col-6을 하면 그 영역이 6칸을 잡아먹음  -->
+    <div class="container bg-dark">
+      <div class="row">
+        <div class="col py-3 bg-success"></div>
+        <div class="col py-3 bg-warning"></div>
+        <div class="col py-3 bg-info"></div>
+        <div class="col py-3 bg-info"></div>
+      </div>
+      <!-- 여기에서는 col을 따로 설정해두지 않아서 12칸을 알아서 나눠서 사용하지만 -->
+      <br />
+
+      <div class="row">
+        <div class="col-4 py-3 bg-success"></div>
+        <div class="col-4 py-3 bg-warning"></div>
+        <div class="col-4 py-3 bg-info"></div>
+        <div class="col-4 py-3 bg-info"></div>
+        <div class="col-4 py-3 bg-info"></div>
+      </div>
+      <!-- 여기에서는 4칸씩 먹어서 3개로 12개가 이미 되어버려서 나머지 하나는 줄이 추가된다. -->
+      <br />
+
+      <div class="row">
+        <div class="col-9 py-3 bg-success"></div>
+        <div class="col-3 py-3 bg-warning"></div>
+      </div>
+
+      <div class="row">
+        <div class="col py-3 bg-success"></div>
+        <div class="col-7 py-3 bg-warning"></div>
+        <!--얘가 7칸 가져가서 나머지 위아래 2개는 2.5씩 가져감-->
+        <div class="col py-3 bg-info"></div>
+      </div>
+      <br />
+
+      <div class="row bg-danger p-2">
+        <div class="col-8 bg-warning">
+          col-8
+          <div class="row">
+            <div class="col-6 py-3 bg-light">col-6</div>
+            <div class="col-6 py-3 bg-info">col-6</div>
+          </div>
+        </div>
+        <div class="col-4 bg-success">col-4</div>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col-sm-9 bg-danger">col-sm-9</div>
+        <!-- 브라우저 너비가 sm사이즈(576px) 이상일떄 9:3비율로 쪼개고 그 이하가되면 위아래로 나란하게 배치됨  -->
+        <div class="col-sm-3 bg-primary">col-sm-9</div>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col-sm bg-success">col-sm</div>
+        <div class="col-sm bg-warning">col-sm</div>
+        <div class="col-sm bg-success">col-sm</div>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col-5 col-sm-9 bg-danger">col-sm-9</div>
+        <div class="col-7 col-sm-3 bg-primary">col-sm-3</div>
+        <!-- 브라우저 너비가 smsize(5766px)보다 작을떄는 6,6씩 갖다가 smsize 보다 커지면 9:3으로 갖겠다는 거임 -->
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col col-sm-3 col-md-6 col-lg-4 bg-danger">1</div>
+        <div class="col col-sm-9 col-md-6 col-lg-8 bg-primary">2</div>
+        <!-- break포인트를 다양하게 넣을 수도 있음 -->
+        <!-- sm보다 작을 떄는 공평하게->sm~md 3:9-> md~lg:6:6 ->lg보다 커지며 4:8 -->
+      </div>
+      <br />
+
+      <main class="row g-4">
+        <section class="col-3 py-3 bg-success"></section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bootstrap ICON</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <h1>Bootstrap ICON</h1>
+    <h2>i태그로 적용하는 방법</h2>
+    <i class="bi-alarm" style="font-size: 2rem; color: cornflowerblue"></i>
+    <hr />
+    <h2>svg 태그로 적용하는 방법</h2>
+    <!-- svg: 크기 조정이 가능한 백터 그래픽, w,h조정 가능, fill 색상 변경가능
+        -svg태그에 width, height 속성을 1em으로 설정하면 부모요소 크기에 맞게 변경(em이라는 단위는 부모요소에 맞춰서 뭘 하고 싶을 떄 사용)
+ -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="50"
+      height="50"
+      fill="gold"
+      class="bi bi-github"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+      />
+    </svg>
+    <hr />
+
+    <h2>ICon 사용 예시</h2>
+    <i class="bi bi-heart heart_icon"></i>
+    <!-- <i class="bi bi-heart-fill"></i> -->
+
+    <script>
+      const heartIcon = document.querySelector('.heart_icon');
+      heartIcon.addEventListener('click', () => {
+        //heartIcon.classList.remove('bi-heart');
+        //heartIcon.classList.add('bi-heart-fill');//이렇게 하면 다시 돌아오지않음
+        //remove와 add를 toggle로 바꿔줌
+        heartIcon.classList.toggle('bi-heart');
+        heartIcon.classList.toggle('bi-heart-fill'); //toggle있으면 없애고 없으면 있게함
+      });
+    </script>
+  </body>
+</html>
