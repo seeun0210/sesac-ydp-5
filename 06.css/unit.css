@@ -1,0 +1,113 @@
+html {
+  font-size: 10px;
+}
+
+.box {
+  margin-bottom: 100px;
+}
+
+/* px 단위 */
+.px {
+  width: 500px;
+  height: 500px;
+  background-color: palegoldenrod;
+}
+
+/*  %단위 
+    -상위 요소의 상대적인 크기
+*/
+.pct-parent {
+  width: 500px;
+  height: 500px;
+  background-color: plum;
+}
+
+.pct-child {
+  width: 50%; /*부모요소의 50%니까 250px임*/
+  height: 50%;
+  background-color: palegreen;
+}
+
+/* em 
+    -font-size:속성값에 비례해서 결정되는 상대 단위
+    -상위 요소 크기에 비례(나는 가의 2배 다는 나의 2배!)
+    -em단위는 중첩된다! 굳이 필요한 상황이 아니라면 자주 상용하지 않는다.
+    -3em 을 사용하더라도 상황에 따라 그 크기가 다르기 떄문
+*/
+
+.em {
+  font-size: 2em; /*개발자 도구에서 가장 왼쪽 아이콘을 누르면 각 요소의 폰트를 확인해 볼 수 있다*/
+}
+
+/* rem
+    -root em의 약자
+    -최상위 요소(html)크기에 비례(em에 비해 조금 더 명확, 중첩되든 말 든 상관없이)
+    -3rem이면 다 같은 크기!(중첩의 영향을 받지 않음)🤔
+ */
+.rem {
+  font-size: 2rem;
+}
+
+.case1 {
+  font-size: 20px;
+}
+
+.case2 {
+  font-size: 10px;
+}
+.em-3 {
+  font-size: 3em;
+}
+/*여기에서 case1의 하위요소는 60px(20*3)을 갖게 되고 case2(10*3)의 하위요소는 30px
+
+/* vw,vh 
+    -viewport width(vw),viewport height(vh)
+    -1vw:viewport width 1%
+    -1vh:viewport height 1%
+    
+    [퀴즈]현재 웹 브라우저 사이즈(1200px,900px)일 떄,
+    5vw,5vh의 값은 ? (60px,45px)
+    1vw=12px, 1vh=9px
+*/
+
+.vw {
+  height: 20vw;
+  width: 20vw; /*브라우저에서 가로의 20%(1/5)의 사이즈를 갖는 정사각형!*/
+  background-color: coral;
+}
+.vh {
+  height: 20vh;
+  width: 20vh; /*이것도 정사각형이지만 viewport의 높이를 기준으로 비율을 지정함*/
+  background-color: coral;
+  /*편하게 확인하기 위해*/
+  margin-bottom: 1000px;
+}
+/* CSS변수  
+    -변수 이름: --로 시작
+*/
+:root {
+  /*전역변수(이 파일 내에서 사용 가능)*/
+  /*이렇게 쓰면 이 파일에서 선언된 변수들은 자유롭게 쓸 수 있다*/
+  --color-success: green;
+  --color-error: red;
+  --color-white: white;
+}
+
+.btn {
+  /*지역변수(블럭 내에서만 사용 가능)*/
+  --size: 8px;
+  color: var(--color-white); /*위에서 선언한 변수는 이렇게 사용할 수 있다!*/
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  padding: var(
+    --size
+  ); /*--size변수는 지역변수라 이 블럭 내에서만 사용이 가능하다*/
+  width: calc(var(--size) * 25); /*--size변수의 배수로 설정하고 싶을 떄 clac()*/
+}
+.btn.success {
+  background-color: var(--color-success);
+}
+.btn.error {
+  background-color: var(--color-error);
+}

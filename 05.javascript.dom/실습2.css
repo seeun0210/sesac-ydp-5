@@ -1,0 +1,6 @@
+table {
+  border: width 5px;
+  border-color: black;
+  max-width: fit-content;
+  max-height: fit-content;
+}

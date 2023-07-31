@@ -115,5 +115,5 @@ chgInput.addEventListener('change', function (e) {
 chgInput.addEventListener('input', function () {
   console.log('change!!');
   const div = document.querySelector('.intro');
-  div.textContent = this.value;
+  div.textContent = this.value; //실시간으로 텍스트 동기화
 });
