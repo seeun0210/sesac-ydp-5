@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Event</title>
+
+    <!-- jquery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./index3.js"></script>
+
+    <style>
+      body {
+        padding-bottom: 1000px;
+      }
+
+      .hover {
+        font-size: 20px;
+        background-color: aqua;
+        transition: all 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>jQuery Event</h1>
+    <h2>마우스 이벤트</h2>
+    <p class="p-msg">안녕하세요</p>
+
+    <ul class="numbers">
+      <li class="num">one</li>
+      <li class="num">two</li>
+      <li class="num">three</li>
+      <li class="num">four</li>
+    </ul>
+
+    <div class="div-hover">hover 변화</div>
+    <hr />
+
+    <h2>키보드 이벤트</h2>
+
+    <input class="input-key" type="text" />
+    <hr />
+
+    <h2>폼 이벤트</h2>
+    <h2>Todo 리스트</h2>
+    <form id="todo-form">
+      <input type="text" name="todo" />
+      <button>Add</button>
+    </form>
+    <ul class="todos"></ul>
+    <hr />
+
+    <h2>this</h2>
+    <h3>버튼 클릭시 클릭된 버튼의 색상만 변경하고 싶은 경우!!</h3>
+    <button class="btn btn1">btn1</button>
+    <button class="btn btn2">btn2</button>
+    <button class="btn btn3">btn3</button>
+    <button class="btn btn4">btn4</button>
+    <button class="btn btn5">btn5</button>
+
+    <span class="span span1">span1</span>
+    <span class="span span2">span2</span>
+    <span class="span span3">span3</span>
+    <span class="span span4">span4</span>
+    <span class="span span5">span5</span>
+
+    <hr />
+    <a href="https://www.google.com" blank="_target" id="inactive">구글구글</a>
+    <p id="text"></p>
+  </body>
+</html>
