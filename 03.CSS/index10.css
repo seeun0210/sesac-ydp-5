@@ -1,64 +1,62 @@
-.d-inline1{
-background-color:blue;
-display:inline;
-/* 인라인 처리를 함으로써 content의 내용만큼만 색칠됨 */
+.d-inline1 {
+  background-color: blue;
+  display: inline;
+  /* 인라인 처리를 함으로써 content의 내용만큼만 색칠됨 */
 }
 /* div는 블록요소이기때문에 기본적으로 줄바꿈이 된다. */
 
-.d-inline2{
-background-color:red;
+.d-inline2 {
+  background-color: red;
 }
 
-.d-block1{
-    display:block;
-background-color:blue;
-width:500px;
-
+.d-block1 {
+  display: block;
+  background-color: blue;
+  width: 500px;
 }
 
-.d-block2{
-    display:block;
-background-color:red;
-width:400px;
+.d-block2 {
+  display: block;
+  background-color: red;
+  width: 400px;
 }
 /* 블럭요소는 줄바꿈이 디폴트값이기 때문에 너비가 작아진다고 해서 한줄로 붙지 않는다!! */
 
 /* 블럭요소처럼 width와 height를 자유롭게 설정하면서도 인라인요소처럼 줄바꿈이 되지 않도록 하기 위해서 inline-block을 사용한다 (width,height같은 걸 설정하지 않으면 inline요소처럼 content만큼 크기를 차지함)*/
-.d-inline-block1{
-    display:inline-block;
-    background-color:blue;
+.d-inline-block1 {
+  display: inline-block;
+  background-color: blue;
 }
 
-.d-inline-block2{
-    display:inline-block;
-    background-color:red;
-    width:200px;
-    height:300px;
-    margin:20px;
-    margin-top:20px;
-    margin-bottom:20px;
-    margin-right:40px;
-    margin-left:40px;
-    /* css단출 프로퍼티 */
-    /* ==margin: 상 우 하 좌 */
-    margin: 20px 40px 20px 40px;
-    /* ==margin: 상하 좌우 */
-    margin:20px 40px;
-    
+.d-inline-block2 {
+  display: inline-block;
+  background-color: red;
+  width: 200px;
+  height: 300px;
+  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 40px;
+  margin-left: 40px;
+  /* css단출 프로퍼티 */
+  /* ==margin: 상 우 하 좌 */
+  margin: 20px 40px 20px 40px;
+  /* ==margin: 상하 좌우 */
+  margin: 20px 40px;
 }
 
-.d-none{
-    display:none;
-    /* display:none;을 하면 웹브라우저에서 초록색 박스가 없어진다. 갖고 있던 영역까지도 없앤다! */
-    background-color:green;
-    width: 100px;
-    height:100px;
+.d-none {
+  display: none;
+  /* display:none;을 하면 웹브라우저에서 초록색 박스가 없어진다. 갖고 있던 영역까지도 없앤다! */
+  background-color: green;
+  width: 100px;
+  height: 100px;
 }
 /* display:none과 visibility:hidden의 차이점 */
 
-.box{
-    visibility:hidden;
-    background-color:violet;
-    width:100px;
-    height:100px;
+.box {
+  visibility: hidden;
+  background-color: violet;
+  width: 100px;
+  height: 100px;
 }

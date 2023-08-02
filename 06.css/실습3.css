@@ -3,32 +3,35 @@ header {
   padding-left: 10%;
   padding-right: 10%;
   justify-content: space-between;
+  text-align: justify;
 
-  align-items: center;
   height: 100px;
   width: 1000px;
 
-  font-size: large;
+  font-size: 40px;
 
   background-color: rgb(10, 111, 151);
 }
-span {
-  align-items: ;
-}
+
 ul {
   flex-flow: row;
   display: inline-block;
   display: flex;
   justify-content: space-evenly;
+  margin-top: 0px;
 }
 li {
-  margin-right: 10px;
+  padding-right: 15px;
 }
 @media (max-width: 768px) {
   header {
-  }
-  ul {
-    background-color: skyblue;
+    height: 60px;
+    display: flex;
     flex-direction: column;
+  }
+
+  ul {
+    flex-flow: column;
+    background-color: skyblue;
   }
 }
