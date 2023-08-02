@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습. 이미지 바꾸기</title>
+
+    <!-- TODO: jQuery CDN 추가 -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>이미지 바꾸기</h1>
+
+    <img class="fruit" src="./이미지/q.jpg" alt="" width="300" height="200" />
+    <br />
+    <button type="button" class="btn apple" onclick="imgChangeApple();">
+      사과
+    </button>
+    <button type="button" class="btn bananas" onclick="imgChangeBananas();">
+      바나나
+    </button>
+    <button type="button" class="btn grapes" onclick="imgChangeGrapes();">
+      포도
+    </button>
+    <button type="button" class="btn peaches" onclick="imgChangePeaches();">
+      복숭아
+    </button>
+
+    <script>
+      // TODO: 조건을 만족하는 jquery 코드 작성
+
+      function imgChangeApple() {
+        $('.fruit').attr('src', './이미지./apple.jpg');
+      }
+      function imgChangeBananas() {
+        $('.fruit').attr('src', './이미지./bananas.jpg');
+      }
+      function imgChangeGrapes() {
+        $('.fruit').attr('src', './이미지./grapes.jpg');
+      }
+      function imgChangeGrapes() {
+        $('.fruit').attr('src', './이미지./peaches.jpg');
+      }
+
+      // console.log($('.btn')); // 유사 배열
+      // jQuery 는 js와 다르게 배열 형태더라도 그냥 바로 이벤트 적용 가능!!
+    </script>
+  </body>
+</html>

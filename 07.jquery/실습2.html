@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습19. 클래스 바꾸기</title>
+
+    <!-- TODO: jQuery CDN 추가 -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+      }
+
+      .bg-red {
+        background-color: red;
+      }
+
+      .bg-orange {
+        background-color: orange;
+      }
+
+      .bg-yellow {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>클래스 바꾸기</h1>
+    <div class="box bg-red"></div>
+
+    <script>
+      function changeColor() {
+        // TODO: 조건을 만족하는 jquery 코드 작성
+        // .bg-red 클래스 있다면, .bg-red 제거, .bg-orange 추가
+        if ($('.box').hasClass('bg-red') === 'true') {
+          $('.box').removeClass('bg-red');
+          $('.box').addClass('bg-orange');
+        } else if (console.log($('.box').hasClass('bg-orange')) === 'true') {
+          $('.box').removeClass('bg-orange');
+          $('.box').addClass('bg-yellow');
+        } else if (console.log($('.box').hasClass('bg-yellow')) === 'true') {
+          $('.box').removeClass('bg-yellow');
+          $('.box').addClass('bg-red');
+        }
+        // .bg-orange 클래스 있다면, .bg-orange 제거, .bg-yellow 추가
+        // .bg-yellow 클래스 있다면, .bg-yellow 제거, .bg-red 추가
+      }
+    </script>
+  </body>
+</html>

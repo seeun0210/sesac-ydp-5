@@ -72,6 +72,8 @@ function changeHtmlJquery() {
   $('.p-html').html('<h3>jquery</h3>');
 }
 
+//========================================
+
 // 요소 추가하기
 // append()
 function appendJS() {
@@ -118,16 +120,14 @@ function beforeJS() {
   // 2. li 태그 요소를 생성한 후
   const li = document.createElement('li');
   // 3. li 태그의 텍스트로 'green 클래스를 갖는 요소의 이전 형제 요소로 추가(js)' 추가
-  li.innerText = 'green 클래스를 갖는 요소의 이전 형제 요소로 추가(js)';
+  li.innerText = '이전 형제 요소로 추가(js)';
   // 4. green 클래스를 갖는 요소의 "바로 이전 형제 요소"로 li 요소 추가
   green.before(li);
   // 힌트: https://developer.mozilla.org/en-US/docs/Web/API/Element/before
 }
 
 function beforeJquery() {
-  $('.green').before(
-    '<li>green 클래스를 갖는 요소의 이전 형제 요소로 추가(jquery)</li>'
-  );
+  $('.green').before('<li>이전 형제 요소로 추가(jquery)</li>');
 }
 
 // after()
@@ -137,14 +137,104 @@ function afterJS() {
   // 2. li 태그 요소를 생성한 후
   const li = document.createElement('li');
   // 3. li 태그의 텍스트로 'green 클래스를 갖는 요소의 다음 형제 요소로 추가(js)' 추가
-  li.innerText = 'green 클래스를 갖는 요소의 다음 형제 요소로 추가(js)';
+  li.innerText = '다음 형제 요소로 추가(js)';
   // 4. green 클래스를 갖는 요소의 "바로 다음 형제 요소"로 li 요소 추가
   green.after(li);
   // 힌트: https://developer.mozilla.org/en-US/docs/Web/API/Element/after
 }
 
 function afterJquery() {
-  $('.green').after(
-    '<li>green 클래스를 갖는 요소의 다음 형제 요소로 추가(jquery)</li>'
-  );
+  $('.green').after('<li>다음 형제 요소로 추가(jquery)</li>');
+}
+
+//=========================
+// 요소 삭제하기
+// remove()
+function removeJS() {
+  // li2 아이디를 갖는 요소를 선택하여 그 요소를 삭제
+  const li2 = document.querySelector('#li2');
+  li2.remove(); //여기는 인자로 받을 값이 딱히 없음
+  // 힌트: https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
+}
+
+function removeJquery() {
+  $('#li2').remove();
+}
+
+// empty()
+function emptyJS() {
+  // 참고! js에는 empty 메서드가 없습니다~ 따라서 아래와 같이 코드를 적용해주세요
+  // ul 태그이자 num 클래스를 갖는 요소를 선택후
+  // 해당 요소의 HTML을 빈 문자열 '' 로 설정 (innerHTML)
+  const num = document.querySelector('ul.nums');
+  num.innerHTML = '';
+  num.append(); //여기에서는 인자로 받을 값이 딱히 없음??
+}
+
+function emptyJquery() {
+  $('ul.nums').empty();
+}
+
+//======================
+// 요소 탐색하기
+function findParent() {
+  // child2 클래스 갖는 요소의 부모 요소
+  const child2 = document.querySelector('.child2');
+  console.log(child2.parentElement);
+  //jquery
+  console.log($('.child2').parent());
+}
+
+function findParents() {
+  // JS 없습니다! 패스~~
+  console.log($('.child2').parents());
+}
+
+function findNext() {
+  // child2 클래스 갖는 요소의 다음 형제 요소
+  const child2 = document.querySelector('.child2');
+  console.log(child2.nextElementSibling);
+
+  console.log($('.child2').next());
+}
+
+function findPrev() {
+  // child2 클래스 갖는 요소의 이전 형제 요소
+  const child2 = document.querySelector('.child2');
+  console.log(child2.previousElementSibling);
+
+  console.log($('.child2').prev());
+}
+
+function findChildren() {
+  // parent 클래스 갖는 요소의 자식 요소
+  const parent = document.querySelector('.parent');
+  console.log(parent.children);
+
+  console.log($('.parent').children());
+}
+//====================
+// 클래스 조작하기
+function addClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 추가
+  //   document.querySelector('#hi').classList.add('fs-50');
+  $('#hi').addClass('fs-50');
+}
+
+function removeClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 삭제
+  //   document.querySelector('#hi').classList.remove('fs-50');
+  $('#hi').removeClass('fs-50');
+}
+
+function hasClass() {
+  // hi 아이디 갖는 요소 선택하여 "fs-50" 클래스 포함 여부 확인
+  //   document.querySelector('#hi').classList.contains('fs-50');
+  console.log($('#hi').hasClass('fs-50'));
+}
+
+function toggleClass() {
+  // hi 아이디 갖는 요소 선택하여 "bg-pink" 클래스 토글 (있으면 삭제, 없으면 추가)
+  //   document.querySelector('#hi').classList.toggle('bg-pink');
+  $('$hi').toggleClass('bg-pink');
 }
