@@ -17,7 +17,7 @@ function helloWorld2() {
 //return(반환값):함수 내부(body,block,scope)코드의 "최종 결과값"
 //최종 결과값을 저장하고 보관하기 위한 키워드
 //return 키워드를 만나면 함수 실행 중단(return 다음에 코드 더이상 작성해도 의미 없다)
-console.log(helloWorld()); //Hello World!//🤔undefined(??):console.log()의 return값이 없어서?oo()
+console.log(helloWorld()); //Hello World!가 아니라 undefined가 찍힘🤔undefined(??):console.log()의 return값이 없어서?oo()
 console.log(helloWorld2());
 
 //2. 함수 표현식(Function Expression)

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casual Memo_Login</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   <!-- Bootstrap CDN (css) -->
+   <link
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+   crossorigin="anonymous"
+ />
+ <!-- Bootstrap CDN (js) -->
+ <script
+   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+   crossorigin="anonymous"
+ ></script>
+ <link rel="stylesheet" href="./login.css">
+ <script defer src="./login.js"></script>
+  </head>
+  <body>
+    <div class="login-info">
+    <!-- 이메일 -->
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Email address</label
+      >
+      <input
+        type="email"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="name@example.com"
+      />
+    </div>
+    <!-- 패스워드 -->
+    <label for="inputPassword5" class="form-label">Password</label>
+    <input
+      type="password"
+      id="inputPassword5"
+      class="form-control"
+      aria-describedby="passwordHelpBlock"
+    />
+    
+    <div id="passwordHelpBlock" class="form-text">
+    </div>
+    <div class="submitBtn">
+      <input class="btn btn-primary" type="submit" value="Login">
+    </div>
+    <div class="otherLogin">
+      <button type="button" class="btn btn-warning" id="kakaotalkLogin">카카오톡으로 로그인하기</button>
+    
+      <button type="button" class="btn btn-success" id="naverLogin">네이버로 로그인하기</button>
+    </div>
+  </body>
+</html>
