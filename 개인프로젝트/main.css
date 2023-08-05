@@ -1,0 +1,7 @@
+.back_memo {
+  display: flex;
+  flex-direction: column;
+}
+div .card {
+  display: inline-block;
+}
