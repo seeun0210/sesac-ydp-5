@@ -55,6 +55,7 @@ let arr2 = ['quokka', 'rabbit', 'puppy', 'hamster'];
 //배열에 값 추가
 //arr1[5] = 6; //배열의 5번위치에 요소 6을 추가(인덱싱을 사용한다.)
 //arr1[9] = 100; //인덱스 건너뛰면 빈 값(empty)이 들어가게 됨
+//console.log(arr1[6]);
 
 //.push():끝에 요소 추가
 arr1.push(6); //배열의 제일 끝에 추가하는 방법

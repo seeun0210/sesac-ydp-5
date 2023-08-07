@@ -1,7 +1,12 @@
-.back_memo {
+section {
   display: flex;
-  flex-direction: column;
 }
-div .card {
-  display: inline-block;
+article {
+  background-color: grey;
+  margin-right: 10px;
+  height: max;
+  border-radius: 10px;
+}
+.hover {
+  color: blue;
 }

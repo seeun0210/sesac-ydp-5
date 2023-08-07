@@ -104,7 +104,6 @@ switch (today.getDay()) {
     break;
 }
 
-console.clear();
 //=================
 //math 객체
 //수학적인 상수와 함수
