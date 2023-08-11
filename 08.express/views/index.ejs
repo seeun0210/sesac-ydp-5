@@ -3,23 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인페이지</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
+    <!-- 인클루드 폴더에서 헤드파일을을 불러옴, 헤드파일안에서 지금 title은 변수취급되어있어서 title에 'home'으로 할당함-->
+    <%- include('./includes/head',{title:'home'}) %>
   </head>
   <body>
-    <h1>ejs활용하기에 오신것을 환영합니다!</h1>
+    <% const userId ='apple';%>
+    <!-- ejs내에서 다른 ejs파일 불러오기 -->
+    <%- include('./includes/header') %>
+    <header>헤더</header>
+    <h1><%=userId%>님 ejs활용하기에 오신것을 환영합니다!</h1>
+    <!-- 동적으로 활용해보기 -->
+    <p><%=userId%>님의 비밀번호는 <%=userPw%>입니다</p>
+
+    <h2><%=userId%></h2>
+    <!-- 지금 ejs파일에서는 userId를 apple로 선언하고 js파일에선 banana로 선언했는데 어떤게 적용될까?
+    서버와 이름이 겹치게 되면 ejs내의 변수가 더 우선순위가 높다.=>apple이 보여진다! -->
+    <!-- 그런데 banana라고 사용되는 중에 apple이라고 ejs파일내에서 선언하면 에러까뜬다(초기화 되지 않았기 때문)
+    그래서 ejs파일내에서 변수가 사용되기 전에 재할당을 해야 에러가뜨지 않고 apple로 보여짐 -->
+    <!-- <% for (let i=1;i<=3;i++){%> -->
+    <!-- <button type="button" class="btn btn-primary">버튼 <%=i%></button> -->
+    <!-- <%}%> -->
+    <!-- 배열도 넘겨줄 수 있다..! -->
+    <% for(let i=0;i<btns.length; i++){%>
+    <button type="button" class="btn btn-primary"><%=btns[i]%></button>  
+    <%}%>
 
     <a class="btn btn-primary" href="/login" role="button">로그인</a>
     <a class="btn btn-primary" href="/register" role="button">회원가입</a>
+    <br>
+    <!-- 객체도 넘겨줄 수 있다 -->
+    <span><%=me.name%></span>
+    <span><%=me.msg%></span>
+<br>
+    <!-- 조건문 사용하기 -->
+    <% if(!isLogin){%>
+    <h4>아직 로그인을 하지 않으셨군요!</h4>
+    <%} else{%>
+    <h4>로그인을 하셨군요!</h4>
+    <%}%>
+    
   </body>
 </html>
