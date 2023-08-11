@@ -1,0 +1,8 @@
+h1 {
+  font-size: px;
+  color: red;
+  background-color: blue;
+}
+ul {
+  display: flex;
+}

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 인클루드 폴더에서 헤드파일을을 불러옴, 헤드파일안에서 지금 title은 변수취급되어있어서 title에 'home'으로 할당함-->
     <%- include('./includes/head',{title:'home'}) %>
+    <!-- 특정 css만 지정하고싶다면 head.ejs가 아니라 index.ejs에서만 적용하려면 여기에다가 link태그로 css연결해줘야함 -->
+    <link rel="stylesheet" href="/public/css/home.css">
   </head>
   <body>
     <% const userId ='apple';%>
@@ -41,6 +43,13 @@
     <%} else{%>
     <h4>로그인을 하셨군요!</h4>
     <%}%>
+
+    <!-- 장바구니 -->
+    <ul>
+     <% for(let i=0;i<fruits.length;i++){%>
+<li><%=fruits[i]%></li>
+      <%}%>
+    </ul>
     
   </body>
 </html>
