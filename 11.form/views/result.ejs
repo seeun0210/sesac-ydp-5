@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼 전송 결과</title>
+    <style>
+      span {
+        color: blue;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%=title%>폼 결과 확인하기</h1>
+    <!-- falsy와 truthy를 이용한 조건문 -->
+    <div><span><%= userInfo.id%></span>님 환영합니다!</div>
+    <div>비밀번호는 <span><%=userInfo.pw%></span>이군요!</div>
+    <% if(userInfo.email){%>
+    <!-- 임의의 문자열에 대해서 빈 문자열은 false, 빈 문자열이 아니면 true -->
+    <!-- true값이 아닌데 boolean으로 바꾸었을 때 true값: truthy(true같은 것) :0이 아닌 모든 숫자,⚠️빈 문자열[],⚠️빈 객체{}-->
+    <!-- false 값이 아닌데 boolean으로 바꾸었을 때 false값: falsy(false같은 것): undefined, null, 0.NaN -->
+    <div>이메일은 <span><%=userInfo.email%></span>이군요!</div>
+    <%}%> <%if(userInfo.grade){%>
+    <div><span><%=userInfo.grade%></span>학년 이군요!</div>
+    <%}%>
+  </body>
+</html>

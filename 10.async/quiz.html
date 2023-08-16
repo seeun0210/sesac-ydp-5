@@ -10,6 +10,7 @@
 
     <script>
       // 1. 1초 뒤에 body 태그의 색상을 빨간색 변경 (setTimeout)
+      /*
       setTimeout(function () {
         const bodyColor = document.body;
         bodyColor.style.background = 'red';
@@ -26,7 +27,51 @@
           }, 1000);
         }, 1000);
       }, 1000);
+      */
       // 2. 1초 뒤에 body 태그의 색상을 빨 -> 1초 뒤 주 -> ... -> 1초 뒤에 파란색
+      //
+      //promise로 배경색 변경하기
+      const bodyColor = document.body;
+      function bgRed() {
+        return new Promise(function (resolve, reject) {
+          resolve((bodyColor.style.background = 'red'));
+        });
+      }
+      function bgOrg() {
+        return new Promise(function (resolve, reject) {
+          resolve((bodyColor.style.background = 'orange'));
+        });
+      }
+      function bgYel() {
+        return new Promise(function (resolve, reject) {
+          resolve((bodyColor.style.background = 'yellow'));
+        });
+      }
+      function bgGre() {
+        return new Promise(function (resolve, reject) {
+          resolve((bodyColor.style.background = 'green'));
+        });
+      }
+      function bgBlu() {
+        return new Promise(function (resolve, reject) {
+          resolve((bodyColor.style.background = 'blue'));
+        });
+      }
+      bgRed()
+        .then(function () {
+          return bgOrg();
+        })
+        .then(
+          function () {
+            return bgYel();
+          })
+            .then(function () {
+              return bgGre();
+            })
+            .then(function () {
+              return bgBlu();
+            })
+        );
     </script>
   </body>
 </html>

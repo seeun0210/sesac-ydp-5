@@ -110,11 +110,12 @@ console.log(word3);
 const values = [10, 20, 30];
 
 function get(a, ...rest) {
+  //->얘가 모으는 역할
   //rest는 a에 할당되고 남은 배열의 원소들을 하나의 배열로 다시 묶어버림 그래서 20,30이 배열로 찍힘
   console.log('a>>', a); //10
   console.log('rest>>', rest); //[ 20, 30 ]
 }
-get(...values); //values를 펼쳐서 10,20,30넣음
+get(...values); //values를 펼쳐서 10,20,30넣음 ->얘가 펼치는 역할
 
 //2. 객체에서 rest
 const icecream = {
@@ -130,6 +131,137 @@ console.log(flavor, rest); //choco { company: 'lotte', price: 1000 }
 //3. 배열에서 rest
 const number = [1, 2, 3, 4, 5, 6, 7, 8];
 const [one1, two1, ...rest2] = number;
-console.log(one1);
-console.log(two1);
-console.log(rest2);
+console.log(one1); //1
+console.log(two1); //2
+console.log(rest2); //[ 3, 4, 5, 6, 7, 8 ]구조분해 할당되고 남은 배열의 원소들은 rest2가 새로운 배열로 다시 묶음
+
+console.clear();
+
+/////////////////////
+//클래스
+//:객체 생성 템플릿=> 객체를 만들기 위해 사용!
+
+// 집이라는 현실 세계의 객체를 만들어보자!
+
+/* 
+속성: 
+    만들어진 연도(Number)
+    집의 이름(String)
+    창문 갯수(Number)
+메서드:
+    2023 - 만들어진 연도 콘솔창에 출력하는 "건물의 나이 메소드"
+    창문의 갯수 콘솔창에 출력하는 메소드
+*/
+
+//클래스 정의(틀을 만듦)
+class House {
+  //생성자 함수: 클래스를 이용해 객체를 만들떄마다 객체들이 갖고 있는 기본 속성들을 초기화시키는 역할
+  constructor(year, name, window) {
+    //이 constructor()라는 생성자 함수는 이름을 바꿀 수 없다..하우스라는 객체를 만들떄마다 year, name, window라는 속성을 이용해 만들겠다는거임
+    this.year = year; //여기에서 this는 House라는 클래스에서 year가 필요한데 construct의 매개변수에서 year를 받아오겠다는 거임
+    this.name = name;
+    this.window = window;
+  }
+  //메서드 1:집의 나이 출력
+  getAge() {
+    console.log(`${this.name}는 건축한지 ${2023 - this.year}년 되었습니다.`);
+  }
+  //메서드2: 집의 창문 개수 출력
+  getWindow() {
+    console.log(`${this.name}의 창문은 ${this.window}개 입니다.`);
+  }
+}
+
+//위에서 만든 클래스를 이용해 객체를 만들어보자
+const house1 = new House(2021, 'ipark', 1);
+console.log(house1, typeof house1); //House { year: 2021, name: 'ipark', window: 1 } object
+//객체니까 keyvalue접근 가능
+console.log(house1.year);
+console.log(house1.name);
+console.log(house1.window);
+
+//House객체는 매서드도 갖고 있음
+house1.getAge();
+house1.getWindow();
+
+const house2 = new House(2007, 'Xi', 10);
+console.log(house2);
+house2.getAge();
+
+class Shape {
+  constructor(row, col) {
+    this.row = row;
+    this.col = col;
+  }
+  getArea() {
+    return this.row * this.col;
+  }
+}
+let rec1 = new Shape(3, 4);
+console.log(rec1.getArea());
+
+//클래스 상속
+//부모 클래스가 House
+//자식 클래스가 Apartments
+class Apartments extends House {
+  constructor(year, name, window, floor, windowMaker) {
+    //부모 객체에서 상속 받아옴=상속한 부모 클래스의 생성자를 호출
+    //year,name,window는 부모클래스에 있던건데 그대로 쓰고싶음
+    super(year, name, window);
+    //floor,windowMaker는 Apartments에만 있는 속성
+    this.floor = floor;
+    this.windowMaker = windowMaker;
+  }
+  getAptInfo() {
+    return `${this.year}에 지어진 ${this.name}아파트의 총 층수는 ${this.floor}이며, 창문의 개수는 ${this.window}`; //문자열로 return
+  }
+  //오버라이딩(overriding)
+  //부모클래스에 정의 되어 있는 메서드의 이름을 동일하게 사용하되, 다른 내용
+  //=>이떄 자식클래스에서 새롭게 정의한 내용대로 메서드가 실행됨,즉 부모클래스의 메서드가 아니라 자식클래스의 매서드가 실해되는 거임
+  getWindow() {
+    return `${this.name}아파트의 ${this.window}개의 창문은 ${this.windowMaker}회사에서 생산되었습니다.`;
+  }
+}
+
+const apt1 = new Apartments(2022, '래미안', 3, 20, 'kcc');
+console.log(apt1);
+console.log(apt1.getAptInfo());
+console.log(apt1.getWindow());
+apt1.getAge(); //부모클래스에서 정의한것 매서드도 따로 자식클래스에서 정의하지 않아도 사용할 수 있음.
+
+//실습.클래스 상속(선택)
+class Rectangle extends Shape {
+  constructor(row, col) {
+    super(row, col);
+  }
+  getArea() {
+    return this.row * this.col;
+  }
+  getCrossLength() {
+    return Math.sqrt(this.getArea());
+  }
+}
+class Triangle extends Shape {
+  constructor(row, col) {
+    super(row, col);
+  }
+  getAreaTriangle() {
+    return (this.row * this.col) / 2;
+  }
+}
+class Circle extends Shape {
+  constructor(row, col, radius) {
+    super(row, col);
+    this.radius = radius;
+  }
+  getArea() {
+    return (this.radius * this.radius * 3.14) / 2;
+  }
+}
+const rec2 = new Rectangle(3, 4);
+console.log(rec2.getArea()); //12
+console.log(rec2.getCrossLength()); //3.4641016151377544
+const tri1 = new Triangle(3, 4);
+console.log(tri1.getAreaTriangle()); //6
+const r1 = new Circle(3, 4, 3);
+console.log(r1.getArea()); //14.13
