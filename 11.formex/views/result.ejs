@@ -12,20 +12,17 @@
     </style>
   </head>
   <body>
-    <h1><%=title%>폼 결과 확인하기</h1>
-    <div><span><%=userInfo.name%></span>님 환영합니다!</div>
-    <div>성별은 <span><%=userInfo.gender%></span>이군요!</div>
-    <div>생년월일은 <span><%=userInfo.birthday%></span>입니다.</div>
-    <div>
-      관심사는 <%if(userInfo.travel){%>
-      <span>여행</span>
-      <%}%> <%if(userInfo.fashion){%>
-      <span>패션</span>
-      <%}%> <%if(userInfo.food){%>
-      <span>음식</span>
-      <%}%> 입니다.
-    </div>
-    <div>좋아하는 색상은 <span><%=userInfo.color%></span></div>
-    <div>좋아하는 숫자는 <span><%=userInfo.number%></span>입니다.</div>
+    <h1>폼 전송 결과</h1>
+    <ul>
+      <li>이름:<%=user.username%></li>
+      <li>성별:<%=user.gender%></li>
+      <li>생일:<%=user.birthYear%>년<%=user.birthMonth%>월<%=birthDay%>일</li>
+      <li>취미:<%=user.hobby%></li>
+      <%if(user.myColor){%>
+      <li>좋아하는 색상:<%=user.myColor%></li>
+      <%}%> <%if(user.myNumber){%>
+      <li>취미:<%=user.myNumber%></li>
+      <%}%>
+    </ul>
   </body>
 </html>

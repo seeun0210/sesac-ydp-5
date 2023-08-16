@@ -14,23 +14,51 @@ app.use(express.urlencoded({ extended: true })); //post요청으로 들어오는
 app.use(express.json()); //json형식으로 데이터를 주고 받음
 
 //라우팅(Routing)-주소 설정
+//  -[요청방식(get, post,..)+요청경로]세트가 겹치면 안됨!
+//  -GET/hello,POST/hello->ㄱㅊ
+
+//  -POST/banana,POST/banana->x
+//라우트(Route):주소
 //GET '/'=>index.ejs를 보여줌
 //get 방식은 클라이언트에서 보낸 데이터가 req.query에 저장
 app.get('/', (req, res) => {
-  console.log(req.query); //{}:빈 객체
+  //console.log(req.query); //{}:빈 객체
   //res.render(ejs경로, 데이터)
   //ejs_경로: views/폴더 내부 ejs 파일의 주소
   //데이터: 뷰에 넣어줄 정보
-  res.render('index', { title: '폼 전송을 연습해보자!' });
+  res.render('main', { title: '실습문제풀이' });
+});
+app.get('/practice1', (req, res) => {
+  res.render('practice1');
+});
+app.get('/practice2', (req, res) => {
+  res.render('practice2');
+});
+app.get('/result1', (req, res) => {
+  res.render('result');
+});
+app.post('/result2', (req, res) => {
+  res.render('result');
+});
+/*
+app.get('/', (req, res) => {
+  //console.log(req.query); //{}:빈 객체
+  //res.render(ejs경로, 데이터)
+  //ejs_경로: views/폴더 내부 ejs 파일의 주소
+  //데이터: 뷰에 넣어줄 정보
+  res.render('main', { title: '실습문제풀이' });
+});
+*/ //->이렇게 쓰면 위에 app.get과 '/'이랑 'main'이 겹쳐서 안된다...
+app.get('/result1', (req, res) => {
+  console.log(req.query);
+  res.render('result', { user: req.query });
+  // get방식으로 받은 데이터를 user라는 객체로 묶어서 사용할 수 있다.
+});
+app.post('/result2', (req, res) => {
+  console.log(req.body);
+  res.render('result', { user: req.body });
 });
 
-//POST '/postForm'=>임의의 메시지 전송
-//post 방식은 클라이언트에서 보낸 데이터가 req.body에 저장
-app.post('/postForm', (req, res) => {
-  console.log(req.body); //f12->network->postForm->payload에서 확인가능
-  //res.send('post 요청 성공!');
-  res.render('result', { title: 'POST요청', userInfo: req.body });
-});
 app.listen(PORT, () => {
   console.log(`${PORT} is opening!`);
 });
