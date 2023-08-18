@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>GET 폼 실습</h1>
+    <form action="" name="register">
+      <label for="username">이름</label>
+      <input type="text" name="username" id="username" />
+      <br />
+
+      <fieldset>
+        <legend>성별</legend>
+        <input type="radio" name="gender" id="male" value="male" />
+        <label for="male">남자</label>
+        <input type="radio" name="gender" id="female" value="female" />
+        <label for="female">여자</label>
+      </fieldset>
+      <br />
+
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="birthYear" id="year">
+          <% for (let i = 0; i < 50; i++) { %>
+          <option value="<%= 2010 - i %>"><%= 2010 - i %></option>
+          <% } %>
+        </select>
+        <label for="year">년</label>
+        <select name="birthMonth" id="month">
+          <% for (let i = 1; i < 13; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="month">월</label>
+        <select name="birthDay" id="day">
+          <% for (let i = 1; i < 31; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="day">일</label>
+      </fieldset>
+      <br />
+
+      <fieldset>
+        <legend>관심사</legend>
+        <input type="checkbox" name="hobby" id="travel" value="travel" />
+        <label for="travle">여행</label>
+        <input type="checkbox" name="hobby" id="fashion" value="fashion" />
+        <label for="fashion">패션</label>
+        <input type="checkbox" name="hobby" id="food" value="food" />
+        <label for="food">음식</label>
+      </fieldset>
+
+      <button type="button" onClick="axiosGet()">회원가입</button>
+    </form>
+    <!-- 동적 폼 보여줌 -->
+    <div class="result"></div>
+    <script>
+      const resultBox = document.querySelector('div.result');
+      async function axiosGet() {
+        const register = document.forms['register'];
+        console.log(register);
+        const name = register.username.value;
+
+        try {
+          const response = await axios({
+            method: 'get',
+            url: '/axios',
+            params: { name }, //무조건 params는 객체로 전달해야함....ㅅㅂ
+          });
+          console.log(response);
+
+          resultBox.textContent = `${response.data.name}님 회원가입이 완료되었습니다!`;
+        } catch (error) {
+          resultBox.textContent = `알 수 없는 에러 발생! 다시 시도해주세요~`;
+          console.log('Error!', error);
+        }
+      }
+    </script>
+  </body>
+</html>
