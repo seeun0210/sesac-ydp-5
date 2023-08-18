@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <title>동적 폼 전송</title>
+  </head>
+  <body>
+    <h1>동적 폼 전송 연습하기!</h1>
+    <form  name="register">
+      <label for="name">이름</label>
+      <input for="text" id="name" name="name" value="새싹"></input>
+
+      <br />
+      성별
+      <input type="radio" name="gender" value="m" id="male" checked />
+      <label for="male">남</label>
+      <input type="radio" name="gender" value="f" id="female" />
+      <label for="female">여</label>
+      <br />
+      <button type="button" onClick="ajaxGet();">Ajax Get 제출</button>
+      <button type="button" onClick="ajaxPost();">Ajax Post 제출</button>
+    </form>
+    <!-- 동적 폼 전송 결과를 보여줄 곳 -->
+    <div class="result"></div>
+    <script>
+      //frontend javascript
+      const resultBox=document.querySelector('div.result');
+      function ajaxGet() {
+        console.log('ajaxGet 함수 호출!');
+        //폼선택
+        const form = document.forms['register'];
+        console.log(form);
+        //폼 객체 요소 확인
+        console.dir(form);
+        console.dir(form.name.value); //이름 input에 입력 한 값
+        console.dir(form.gender.value); //성별 radio input을 선택한 값
+
+        //요청에 실어서 보낼 데이터 변수(서버에서 받을 정보)
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+        };
+
+        //Ajax로 서버에 Get요청을 보내기
+        $.ajax({
+          type: 'get',//요청의 종ㄹ(=form의 method속성)
+        
+          url: '/ajax',//요청의 경로(=form의 action속성)
+
+          data: data,//요청에 실어보낼 데이터(서버가 받게 될 데이터)
+          success: function (data) {
+            //요청이 성공적으로 수행되었을 때 실행할 함수
+            console.log(data);
+            //결과
+            //div.result 선택해서
+resultBox.textContent=`get /ajax 요청 완료!! ${data.name}님은 ${data.gender}이시죠?`
+
+
+            //서버로 받은 data값을 활용해 내용 브라우제 화면에 출력
+          },
+        });
+      }
+      function ajaxPost() {
+        console.log('ajaxPost 함수 호출!');
+    const form=document.forms['register'];
+    const data={
+        name:form.name.value,
+        gender:form.gender.value,
+
+    }//서버로 보낼 데이터 정의
+    $.ajax({
+        type:'post',
+        url:'/ajax',
+        data:data,
+        success:function(data){
+            console.log(data);
+            resultBox.textContent=`POST/ajax요청 완료!! ${data.name}님은 ${data.gender}`;
+        }
+    })
+      }
+    </script>
+  </body>
+</html>
