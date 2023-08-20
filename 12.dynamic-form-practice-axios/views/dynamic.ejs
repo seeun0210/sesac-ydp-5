@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>회원가입 확인하기 실습</title>
+  </head>
+  <body>
+    <h1>AXIOS POST LOGIN</h1>
+    <form action="" name="register">
+      <label for="id">ID</label>
+      <input type="text" name="id" id="id" />
+      <br />
+      <label for="pw">PW</label>
+      <input type="password" name="pw" id="pw" />
+
+      <button type="button" onClick="axiosPost()">login</button>
+    </form>
+    <!-- 동적 폼 보여줌 -->
+    <div class="result"></div>
+    <script>
+      const resultBox = document.querySelector('div.result');
+      async function axiosPost() {
+        const register = document.forms['register'];
+        console.log(register);
+        const data = {
+          id: register.id.value,
+          pw: register.pw.value,
+        };
+
+        try {
+          const response = await axios({
+            method: 'post',
+            url: '/axios',
+            data: data,
+          });
+
+          console.log(response);
+          if (response.data.loginResult === 'success') {
+            resultBox.textContent = `${data.id}님 안녕하세요!`;
+            resultBox.style.color = 'blue';
+          } else {
+            resultBox.textContent = `로그인에 실패하였습니다!`;
+            resultBox.style.color = 'red';
+          }
+        } catch (error) {
+          resultBox.textContent = `알 수 없는 에러 발생! 다시 시도해주세요~`;
+          console.log('Error!', error);
+        }
+      }
+    </script>
+  </body>
+</html>
