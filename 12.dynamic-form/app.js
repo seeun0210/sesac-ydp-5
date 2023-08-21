@@ -37,6 +37,7 @@ app.post('/fetch', (req, res) => {
   console.log(req.body);
   res.send(req.body);
 });
+
 app.listen(PORT, function () {
   console.log(`Port ${PORT} is opening!`);
 });

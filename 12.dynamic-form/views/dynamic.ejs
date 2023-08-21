@@ -28,11 +28,12 @@
     <!-- 이름, 성별(라디오버튼)을 정보를 입력받는 폼 -->
     <form name="register">
       <label for="name">이름</label>
-      <input type="text" id="name" name="name" value="SESAC" />
+      <input type="text" id="name" name="name" required />
       <br />
 
       성별
-      <input type="radio" name="gender" value="m" id="male" checked />
+      <input type="radio" name="gender" value="m" id="male" required />
+      <!-- radio에서 상위 하나에만 required넣으면 하위항목은 자동으로... -->
       <label for="male">남</label>
       <input type="radio" name="gender" value="f" id="female" />
       <label for="female">여</label>
@@ -43,7 +44,9 @@
       <button type="button" onClick="ajaxPost();">Ajax Post 제출</button>
       <br />
 
-      <button type="button" onClick="axiosGet();">Axios Get 제출</button>
+      <button type="button" onClick="axiosGet();">
+        Axios Get 제출(+form validation)
+      </button>
       <button type="button" onClick="axiosPost();">Axios Post 제출</button>
       <br />
 
@@ -54,9 +57,28 @@
 
     <!-- 동적 폼 전송 결과를 보여줄 곳 -->
     <div class="result"></div>
+    <hr />
+    <h1>OPEN API를 이용해 고양이 사진 랜덤돌리기</h1>
+    <button type="button" onClick="changeImg()">랜덤</button>
 
+    <br />
+    <img
+      alt="고양이"
+      width="'500"
+      height="500"
+      src="https://w7.pngwing.com/pngs/633/239/png-transparent-mario-mario.png"
+    />
     <script>
       // frontend javascript
+      const img = document.querySelector('img');
+      async function changeImg() {
+        const response = await axios({
+          method: 'get',
+          url: 'https://api.thecatapi.com/v1/images/search',
+        });
+        const { data } = response;
+        img.src = data[0].url; //img태그의 src속성을 open api에서 받아온 랜덤 이미지 주소로 변경
+      }
       const resultBox = document.querySelector('div.result');
 
       function ajaxGet() {
@@ -122,6 +144,10 @@
           name: form.name.value,
           gender: form.gender.value,
         };
+        console.log(form.name.checkValidity());
+        //같은 name으로 묶인 radio button은 하나만 선택되더라도 true를 반환
+        console.log(form.gender[0].checkValidity());
+        console.log(form.gender[1].checkValidity());
 
         // axios 요청의 결과는 Promise 객체
         // -> then, catch 메서드로 체이닝이 가능!
@@ -146,13 +172,25 @@
 
         // 퀴즈 2. axios 요청 처리 async/await 로 변경~
         try {
-          const response = await axios({
-            method: 'get',
-            url: '/axios',
-            params: data,
-          }); // response: 서버의 응답 결과
+          //폼 유효성 검사
+          //name input에 입력된 값이 없다면, '이름을 입력해주세요!'
+          //gender radio button을 선택하지 않았다면, '성별을 선택해주세요!'
+          //둘다 입력이 잘 되었다면, axios로 back에 요청 날리기
+
           const { name, gender } = response.data; // 객체 구조분해 할당
-          resultBox.textContent = `GET /axios 요청 완료!! ${name}님은 ${gender}이시죠?ㅎㅎ`;
+          if (!form.name.checkValidity()) {
+            resultBox.textContent = '이름을 입력해주세요!';
+          } else if (!form.gender[0].checkValidity()) {
+            //gender배열형태로 넣어야함 안그러면 에러뜸
+            resultBox.textContent = '성별을 선택해주세요!';
+          } else {
+            const response = await axios({
+              method: 'get',
+              url: '/axios',
+              params: data,
+            }); // response: 서버의 응답 결과
+            resultBox.textContent = `GET /axios 요청 완료!! ${name}님은 ${gender}이시죠?ㅎㅎ`;
+          }
         } catch (error) {
           resultBox.textContent = `알 수 없는 에러 발생! 다시 시도해주세요~`;
           console.log('Error!', error);
