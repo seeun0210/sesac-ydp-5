@@ -35,10 +35,10 @@ app.get('/practice2', (req, res) => {
   res.render('practice2');
 });
 app.get('/result1', (req, res) => {
-  res.render('result');
+  res.render('result', { user: req.query });
 });
 app.post('/result2', (req, res) => {
-  res.render('result');
+  res.render('result', { user: req.body });
 });
 /*
 app.get('/', (req, res) => {

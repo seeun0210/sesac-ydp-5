@@ -22,18 +22,7 @@ app.get('/', (req, res) => {
   //데이터: 뷰에 넣어줄 정보
   res.render('dynamic', { title: '실습문제풀이' });
 });
-app.get('/practice1', (req, res) => {
-  res.render('practice1');
-});
-app.get('/practice2', (req, res) => {
-  res.render('practice2');
-});
-app.get('/result1', (req, res) => {
-  res.render('result', { user: req.query });
-});
-app.post('/result2', (req, res) => {
-  res.render('result', { user: req.body });
-});
+
 /*
 app.get('/', (req, res) => {
   //console.log(req.query); //{}:빈 객체
