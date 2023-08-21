@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>파일업로드</title>
   </head>
   <body>
@@ -38,5 +39,42 @@
 
       <button type="submit">업로드</button>
     </form>
+    <h2>동적 파일 업로드</h2>
+    <!-- 동적폼전송은  form태그 필요 없음!!-->
+    <input type="file" name="dynamicUserfile" id="dynamic-file" /><br />
+
+    <button type="submit" onClick="fileUpload()">업로드</button>
+    <br />
+    <!-- 업로드한 이미즈를 보여줄 img 태그 요소 -->
+    <img src="" alt="" width="200" />
+    <script>
+      function fileUpload() {
+        console.log('동적 파일 업로드');
+        //js 만으로 폼을 전송(파일 데이터를 서버로 전손해야하는 케이스)
+        //FormData 객체를 활용하면 쉽게 전송 가능!
+        const formData = new FormData(); //formData():formData에 대한 여러가지 일을 할 수 있는 js 내장 객체
+        const file = document.querySelector('#dynamic-file');
+        console.dir(file); //업로드한 파일 객체
+        console.dir(file.files); //업로드한 첫 파일
+        console.dir(file.files[0]);
+        //append(key,value)
+        formData.append('dynamicUserfile', file.files[0]);
+        axios({
+          method: 'post',
+          url: '/dynamicFile',
+          data: formData,
+          header: { 'Content-Type': 'multipart/form-data' }, //enctype="multipart/form-data"
+        }).then((res) => {
+          console.log(res);
+          const { data } = res; //구조분해로 data에 꺼내옴
+          //서버에 있는 이미지 경로-->app.js에서 static미들웨어를 등록해야한다.
+          console.log(data);
+          console.log(data.path);
+          document.querySelector('img').src = '/' + data.path;
+          // '/'을 붙이는 이유는 절대경로로 하기 위해서임
+          //data.path는 const {path}=data를 해서 객체 구조분해 후 그냥 path로 작성할 수도 있다.
+        });
+      }
+    </script>
   </body>
 </html>
