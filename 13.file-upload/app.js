@@ -14,9 +14,12 @@ const uploadDetail = multer({
   storage: multer.diskStorage({
     destination(req, file, done) {
       //done: callback함수
+      //done(null,xx)여기에서 null은 error를 의미하는 매개변수!
+      //에러가 없으므로 "null"이라고 전달하여 콜백함수를 호출!
       done(null, 'uploads/'); //파일을 업로드 할 경로를 설정
     },
     filename(req, file, done) {
+      //두번째 인자로 파일!!!!!
       const ext = path.extname(file.originalname); //extname():파일"확장자"를 추출
       done(null, path.basename(file.originalname, ext) + Date.now() + ext); //basename():원본 파일에서 확장자를 제외한 파일 이름만 추출
       //파일이름+날짜+확장자
@@ -60,6 +63,28 @@ app.post('/upload', uploadDetail.single('userfile'), (req, res) => {
   console.log('------------');
   console.log(req.body);
 });
+// 2. array(): 여러 파일을 한 번에 업로드
+// uploadDetail.array('userfiles'): 클라이언트 요청이 들어오면
+// multer 설정(uploadDetail 변수)에 따라 파일을 업로드한 후, req.files 객체 생성
+app.post('/upload/array', uploadDetail.array('userfiles'), (req, res) => {
+  console.log(req.files); // [ { 파일1_정보 }, { 파일2_정보 }, .. ] : 배열 형태로 각 파일 정보를 출력
+  console.log(req.body);
+  res.send('하나의 인풋에 여러 파일 업로드 완료!');
+});
+
+//3.fields():여러 파일을 각각 인풋에 업로드
+//req.files에서 파일 정보를 확인
+//fields()매게 변수로 input 태그의 name을 각각 넣기
+app.post(
+  '/upload/fields',
+  uploadDetail.fields([{ name: 'userfile1' }, { name: 'userfile2' }]),
+  (req, res) => {
+    console.log(req.files); // {userfile1:[{파일_정보}],userfile2:[{파일_정보}]}객체 안에 배열형태로 각파일 정보
+    console.log(req.body);
+    res.send('하나의 인풋에 여러 파일 업로드 완료!');
+  }
+);
+
 app.listen(PORT, () => {
   console.log(`${PORT} is opening!`);
 });
