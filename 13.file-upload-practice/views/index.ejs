@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 동작 예시</title>
+
+    <!-- TODO: axios cdn 불러오기 -->
+    <style>
+      body {
+        background-color: aliceblue;
+        padding-bottom: 1000px;
+      }
+
+      .profile {
+        background-color: #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 20px #0002;
+      }
+    </style>
+  </head>
+  <body>
+    <form
+      action="/postForm"
+      method="POST"
+      name="user"
+      enctype="multipart/form-data"
+    >
+      <input type="text" name="id" id="id" placeholder="아이디" />
+      <br />
+
+      <input type="password" name="pw" id="pw" placeholder="비밀번호" />
+      <br />
+
+      <input type="text" name="name" id="name" placeholder="이름" />
+      <br />
+
+      <input type="number" name="age" id="age" placeholder="나이" />
+      <br />
+
+      <input type="file" name="userfile" />
+      <br />
+      <br />
+      <button type="submit">회원가입</button>
+    </form>
+  </body>
+</html>

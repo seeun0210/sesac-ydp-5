@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 결과 예시</title>
+
+    <link rel="stylesheet" href="/static/index.css" />
+  </head>
+
+  <body>
+    <div class="card">
+      <img src="<%=src%>" alt="" width="200" />
+      <!-- 클라이언트에게 받은 이미지보여줄 공간 -->
+
+      <h1><%=userInfo.id%>님 환영합니다</h1>
+      <ul>
+        <li>비밀번호:<%=userInfo.pw%></li>
+        <li>이름:<%=userInfo.name%></li>
+        <li>나이:<%=userInfo.age%></li>
+      </ul>
+    </div>
+  </body>
+</html>
