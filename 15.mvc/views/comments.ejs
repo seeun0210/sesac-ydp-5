@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MVC패턴</title>
+  </head>
+  <body>
+    <h1>댓글 목록 확인</h1>
+    <a href="/">홈으로 이동하기</a>
+    <ul>
+      <% for (let cmt of comments){%>
+
+      <li>
+        <b><%= cmt.userid %></b>
+        <a href="/comment/<%=cmt.id%>"><%= cmt.comment %></a>
+        <!-- 잘못돈 주소로 접근할 경우 404error -->
+      </li>
+      <%}%>
+    </ul>
+  </body>
+</html>
