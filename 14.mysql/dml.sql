@@ -136,3 +136,86 @@ select addr from customer;
 -- DISTINCT: 중복제거
 select distinct addr from customer;
 
+-- <ORDER BY>
+-- order by 없는 경우: PK기준으로 오름차순 정렬
+SELECT * FROM customer;
+
+SELECT * FROM customer order by custname; -- asc가 default값이기 떄문에 생략하면 가나다 순으로 오름차순 정렬이 됨
+SELECT * FROM customer order by custname desc; -- 가나다 내림차순
+
+-- WHERE 절과 ORDER BY 함께 사용 (단, 이때 ORDER BY 가 WHERE 보다 뒤에 위치해야 함)
+-- SELECT * FROM customer ORDER BY addr desc  WHERE birth>='2000-01-01'; -- error: 구문 순서 오류
+-- 2000년생 이후 출생자 중에서 주소를 기준으로 내림차순 검색
+SELECT * FROM customer WHERE birth>='2000-01-01' ORDER BY addr desc; -- 값이 동일할 경우 pk를 기준으로 정렬
+-- order by는 적용 순서를 정할 수 있다
+-- 2000년 생 이후 출생자 중에서 주소를 기준으로 내림차순 그리고 아이디를 기준으로 내림차순 검색
+SELECT * FROM customer WHERE birth>='2000-01-01' ORDER BY addr desc, custid desc;
+-- 2000년 생 이후 출생자 중에서 주소를 기준으로 오름차순 그리고 아이디를 기준으로 내림차순 검색
+SELECT * FROM customer WHERE birth>='2000-01-01' ORDER BY addr, custid desc;
+
+-- <LIMIT>
+-- 행의 개수를 제한
+SELECT * FROM CUSTOMER WHERE BIRTH >+'2000-01-01' limit 2;
+Select * from customer limit 3;
+
+-- <집계함수>
+-- 계산하여 어떤 값을 리턴하는 "함수"
+-- group by 절과 함께 쓰이는 케이스가 많음
+
+-- 주문 테이블에서 상품의 총 판매 개수 검색
+SELECT sum(amount) from orders;
+
+
+-- 주문 테이블에서 총 판매 개수 검색 + 의미있는 열이름으로 변경 (total_sales)
+SELECT SUM(AMOUNT) AS 'total_amount' from orders;
+
+-- 주문 테이블에서 총 판매 개수, 평균 판매 개수, 상품 최저가, 상품 최고가 검색
+-- avg_amount, min_price, max_price
+select sum(amount) as 'total_amount', 
+avg(amount) as 'avg_amount', 
+min(price) as 'min_price', 
+max(price) as 'max_price' 
+from orders ; -- 세미콜론이 끝나야 MySQL에서는 한문장임
+    
+-- 주문 테이블에서 총 주문 건수 (= 튜플 개수)
+select count(*) from orders;
+
+-- 주문 테이블에서 주문한 고객 수 (중복없이)
+select count(distinct custid) from orders; -- 총 8명의 사람이 주문을 한 이력이 있음(총 9명이 있지만 custid에 등록만 되어있고 주문을 하지 않았음~)
+
+
+-- <GROUP BY>
+-- "~별로"
+
+-- 고객별로 주문한 주문 건수 구하기
+select custid, count(*)  from orders group by custid; -- 전체 행에서 custid가 몇번 나왔는지
+
+-- 고객별로 주문한 상품 총 수량 구하기
+select custid, sum(amount), count(*) from orders group by custid;
+
+-- 고객별로 주문한 총 주문액 구하기
+select custid, sum(amount*price) from orders group by custid;
+
+-- 상품 별 판매개수
+select prodname, sum(amount) from orders group by prodname;
+
+-- <HAVING>
+-- group by 절 이후 추가 조건
+
+
+-- alter
+
+-- 총 주문액이 10000원 이상인 고객에 대해서 // 고객별로 주문한 상품 총 수량 구하기
+select custid, sum(amount),sum(price*amount) from orders group by custid having sum(amount*price)>=10000; -- having 이하 절은 group by 절에 대한 조건
+-- select custid, sum(amount),sum(price*amount) from orders WHERE sum(price*amount)>=10000 group by custid ; -- error code 1111. group 함수 잘못 사용
+
+-- 총 주문액이 10000원 이상인 고객에 대해서 고객별로 주문한 상품 총 수량 구하기(단, custid가 'bunny'인 고객은 제외하고 출력)
+select custid, sum(amount),sum(price*amount) from orders WHERE custid!='bunny' group by custid having sum(amount*price)>=10000;
+
+-- group by 주의 사항
+-- select 절에서 group by 에서 사용한 속성과 집계함수만 사용가능
+-- 고객별로 주문한 주문 건수 구하기
+select custid , count(*) from orders group by custid;
+-- WHERE VS HAVING
+-- HAVING : 그룹에 대해서 필터링(group by와 함께 쓰임), group by 보다 뒤에 위치, 집계함수와 함께 사용가능
+-- WHERE : 각각의 행을 필터링, group by 보다 앞에 위치, 집계함수를 사용 할 수 있긴 하지만 having처럼 자유롭게 쓸수는 없음
