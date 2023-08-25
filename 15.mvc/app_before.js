@@ -34,8 +34,9 @@ app.get('/comment/:id', (req, res) => {
 });
 // param 여러개 사용 가능
 app.get('/test/:id/:name', (req, res) => {
-  console.log('req.params', req.params);
-  res.send('test re success!');
+  //localhost:8000/test/banana/바나나라고 하면
+  console.log('req.params', req.params); //req.params { id: 'banana', name: '바나나' }
+  res.send('test req success!');
 });
 
 //404 error 처리
