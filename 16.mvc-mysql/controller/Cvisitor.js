@@ -16,3 +16,13 @@ exports.getVisitors = (req, res) => {
     res.render('visitor', { data: result }); //visiter.ejs에 result(model/Visitor)를 data라는 객체로 묶어서 보내겠다??
   });
 };
+
+exports.postVisitor = (req, res) => {
+  console.log(req.body);
+  //예상 {name: xx, comment: yy}
+  const { name, comment } = req.body;
+  Visitor.postVisitor(req.body, (insertId) => {
+    console.log('controller>>', insertId);
+    res.send({ id: insertId, name: name, comment: comment }); //프론트로 보낼 데이터
+  });
+};

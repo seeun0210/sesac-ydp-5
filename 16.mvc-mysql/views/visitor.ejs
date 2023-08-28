@@ -21,6 +21,7 @@
         background-color: rgb(231, 255, 240);
       }
     </style>
+    <script defer src="/static/js/visitor.js"></script>
   </head>
   <body>
     <form name="visitor-form">
@@ -29,7 +30,7 @@
         <input type="text" id="name" placeholder="사용자 이름" /> <br />
         <input type="text" id="comment" placeholder="방명록" /> <br />
         <div id="button-group">
-          <button type="button">등록</button>
+          <button type="button" onclick="createVisitor()">등록</button>
         </div>
       </fieldset>
     </form>
