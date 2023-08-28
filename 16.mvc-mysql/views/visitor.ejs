@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>방명록</title>
+    <title>수업 방명록</title>
 
     <!-- axios cdn -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -21,6 +21,7 @@
         background-color: rgb(231, 255, 240);
       }
     </style>
+
     <script defer src="/static/js/visitor.js"></script>
   </head>
   <body>
@@ -56,7 +57,9 @@
             <button type="button">수정</button>
           </td>
           <td>
-            <button type="button">삭제</button>
+            <button type="button" onclick="deleteVisitor(this, '<%= d.id %>')">
+              삭제
+            </button>
           </td>
         </tr>
         <% } %>

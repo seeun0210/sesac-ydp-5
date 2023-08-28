@@ -39,3 +39,13 @@ exports.postVisitor = (data, callback) => {
     }
   );
 };
+exports.deleteVisitor = (id, callback) => {
+  console.log('model>>', id);
+  conn.query(`delete from visitor where id=${id}`, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    console.log('model>>', rows);
+    callback(true); //{id :id}로 삭제한 아이디를 보내는 경우도 있음...여기서는 삭제성공했다는 의미에서 true라는 불리언 값을 넘김
+  });
+};
