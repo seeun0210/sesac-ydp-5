@@ -14,7 +14,7 @@ const conn = mysql.createConnection({
   database: 'sesac',
 });
 exports.getVisitors = (callback) => {
-  conn.query(`select * from visitor`, (err, rows) => {
+  conn.query(`select * from visitor order by id desc`, (err, rows) => {
     //`select * from visitor`:webserver에서 database로 query를 날리는 것!!
     //visitor의 모든 행을 선택해서
     if (err) {
@@ -30,6 +30,7 @@ exports.postVisitor = (data, callback) => {
   //callback:query실행 후 호출할 함수
   conn.query(
     `insert into visitor values(null, "${data.name}","${data.comment}")`,
+
     (err, rows) => {
       if (err) {
         throw err;
@@ -45,7 +46,32 @@ exports.deleteVisitor = (id, callback) => {
     if (err) {
       throw err;
     }
-    console.log('model>>', rows);
+    console.log('model>>', rows); //[{}.{}.{}]배열 형태로 나왔음...
     callback(true); //{id :id}로 삭제한 아이디를 보내는 경우도 있음...여기서는 삭제성공했다는 의미에서 true라는 불리언 값을 넘김
+  });
+};
+exports.getVisitor = (id, callback) => {
+  conn.query(`select * from visitor where id = ${id}`, (err, rows) => {
+    //where 조건에서는 어떻게 찍히나...
+
+    if (err) {
+      throw err;
+    }
+    console.log(rows);
+    // [ RowDataPacket { id: 6, name: 'ㅇㅁㅇㄹ', comment: 'ㅁㄴㅇㄹ' } ]배열 안에 객체 하나만 들어있으니까
+    //그 원소 하나만 넘겨주자...
+    callback(rows[0]);
+  });
+};
+exports.updateVisitor = (updateData, callback) => {
+  const { id, name, comment } = updateData;
+  const sql = `update visitor set name='${name}',comment='${comment}' where id=${id} `; //update할 query문이 길어서 변수로 받아서 넣겠음..
+  //sql문 작성시 ${name} 따옴표 안에 넣어주어야 한다....
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    console.log(rows);
+    callback(rows);
   });
 };

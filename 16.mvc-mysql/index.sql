@@ -14,7 +14,7 @@ show databases;
 drop database sesac;
 create database sesac;
 -- 이모지, 특수문자를 사용 할 수 있는 인코딩
-create database sesac character set utf8mb4 collate utfmb4_unicode_ci;
+create database sesac character set utf8mb4 collate utf8mb4_unicode_ci;
 use sesac;
 
 -- user라는 새로운 계정(mysql 접속 가능한 계정) 생성
