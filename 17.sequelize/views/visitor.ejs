@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수업 방명록</title>
+
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- jquery cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        background-color: rgb(231, 255, 240);
+      }
+    </style>
+
+    <script defer src="/static/js/visitor.js"></script>
+  </head>
+  <body>
+    <form name="visitor-form">
+      <fieldset>
+        <legend>방명록 등록</legend>
+        <input type="text" id="name" placeholder="사용자 이름" /> <br />
+        <input type="text" id="comment" placeholder="방명록" /> <br />
+        <div id="button-group">
+          <button type="button" onclick="createVisitor()">등록</button>
+        </div>
+      </fieldset>
+    </form>
+    <br />
+
+    <table border="1" cellspacing="0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>작성자</th>
+          <th>방명록</th>
+          <th>수정</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let d of data) { %>
+        <tr id="tr_<%= d.id %>">
+          <td><%= d.id %></td>
+          <td><%= d.name %></td>
+          <td><%= d.comment %></td>
+          <td>
+            <button type="button" onclick="editVisitor('<%= d.id %>')">
+              수정
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="deleteVisitor(this, '<%= d.id %>')">
+              삭제
+            </button>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>
