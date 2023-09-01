@@ -1,18 +1,22 @@
 const TeamModel = (sequelize, DataTypes) => {
-  const Team = sequelize.define('Team', {
-    team_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
+  const Team = sequelize.define(
+    'Team',
+    {
+      team_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
+      name: {
+        type: DataTypes.STRING(63),
+        allowNull: false,
+      },
     },
-    name: {
-      type: DataTypes.STRING(63),
-      allowNull: false,
-    },
-  }, {
-    freezeTableName: true
-  });
+    {
+      freezeTableName: true,
+    }
+  );
   return Team;
 };
 

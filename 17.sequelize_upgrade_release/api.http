@@ -1,0 +1,50 @@
+### 반복되는거 변수저장
+@server = http://localhost:8000
+
+### player_id를 변수로 설정
+@player_id=4
+
+### team_id를 변수로 설정
+@team_id=1
+
+### 변수저장한건 중괄호 두번 안에 넣으면 됨{{변수}}
+### 전체 선수 조회
+GET {{server}}/players
+
+### 특정 선수 조회
+GET {{server}}/players/{{player_id}}
+
+### 선수 추가
+POST {{server}}/players
+Content-Type: application/json; charset=UTF-8
+
+{
+"name":"손흥민",
+"age":30,
+"team_id":2
+}
+
+### 특정 선수의 소속 팀 변경 - 요청 주소에서 1dms player_id를 의미
+PATCH {{server}}/players/{{player_id}}/team
+Content-Type: application/json; charset=UTF-8
+
+{
+    "team_id":1
+}
+
+### 특정 선수 삭제(player_id에 해당하는 Player,Profile 연쇄 삭제)
+DELETE {{server}}/players/{{player_id}}
+
+### 전체 팀 조회
+GET {{server}}/teams
+
+### 전체 팀 조회-이름 오름차순
+GET {{server}}/teams?sort=name_asc
+
+### 전체 팀 조회- 팀 이름 검색
+GET {{server}}/teams?search=KT
+### 특정 팀 조회
+GET {{server}}/teams/{{team_id}}
+
+### 특정 팀의 모든 선수를 조회
+GET {{server}}/teams/{{team_id}}/players

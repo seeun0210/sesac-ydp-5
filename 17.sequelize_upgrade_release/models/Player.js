@@ -1,22 +1,26 @@
 const playerModel = (sequelize, DataTypes) => {
-  const Player = sequelize.define('Player', {
-    player_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,
+  const Player = sequelize.define(
+    'Player',
+    {
+      player_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
+      name: {
+        type: DataTypes.STRING(63),
+        allowNull: false,
+      },
+      age: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
-    name: {
-      type: DataTypes.STRING(63),
-      allowNull: false,
-    },
-    age: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-  }, {
-    freezeTableName: true
-  });
+    {
+      freezeTableName: true,
+    }
+  );
   return Player;
 };
 

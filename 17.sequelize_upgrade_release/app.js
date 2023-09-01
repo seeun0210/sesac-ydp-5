@@ -11,12 +11,13 @@ app.use(express.json());
 app.use('/', router);
 
 sequelize
-  .sync({ force: false })
+  .sync({ force: false }) //테이블이 없으면 자동으로 만들도록...?
   .then(() => {
     app.listen(PORT, () => {
-      console.log('Database connection succeeded!')
+      console.log('Database connection succeeded!');
       console.log(`http://localhost:${PORT}`);
     });
-  }).catch((error) => {
+  })
+  .catch((error) => {
     console.error(error);
-  });;
+  });
