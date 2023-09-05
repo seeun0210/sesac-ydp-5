@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./head') %>
+  <body>
+    <h1>회원가입, 로그인, 회원정보수정 실습 (with. 세션)</h1>
+    <%if(isLogin){%>
+    <p><%= data.userSession%>님 환영합니다 🙌🏻</p>
+    <a href="/register">회원가입</a>
+    <a href="/login">로그인</a>
+    <a href="/users">전체회원</a>
+    <a href="/profile">내프로필</a>
+    <%}else{%>
+    <p>로그인을 아직 하지 않으셨군요! 로그인을 진행해보세요!</p>
+    <a href="/register">회원가입</a>
+    <a href="/login">로그인</a>
+    <a href="/users">전체회원</a>
+    <%}%>
+  </body>
+  <script></script>
+</html>
