@@ -190,10 +190,24 @@ for (let key in me) {
 // reduce((acc,cur)=>{...})
 // -acc: 누적되는 값
 // -cur: 현재 요소
-
+// 뭔가 누적해서 계산해야 할 때 reduce라는 메서드를 이용한다.
 const numbers2 = [1, 2, 3, 4, 5];
 const initialValue = 100;
 const result = numbers2.reduce((accumulator, currentValue) => {
   return accumulator + currentValue;
-}, initialValue);
+}, initialValue); //이렇게 initialValue를 넣어주면 default 값으로 부터 누적계산을 하게 된다.
 console.log(result); //15
+
+//////////////////////
+// concat()
+// 문자열, 배열에서 합칠 때 쓸 수 있음
+// 여러 배열 할칠 때 사용 가능한 메서드
+
+// 여러 배열을 합치느 방법
+// 1.concat()
+const arr_1 = [1, 2, 3];
+const arr_2 = [4, 5, 6];
+console.log(arr_1.concat(arr_2)); //[1,2,3,4,5,6]
+
+// 2. ...spread
+console.log([...arr_1, ...arr_2]); //[1,2,3,4,5,6]
