@@ -182,3 +182,18 @@ for (let key in me) {
   console.log(key, me[key]); //각 key의 keyvalue에 접근하기 위해서는 점표기법이 아닌 대괄호 표기법을 통해서 접근해야함.(점표기법은 key라는 key가 있을 때 사용한다)
   console.log(key, me.key); //이렇게 하면 me.key에서 undefined가 뜸! 왜냐하면 'key'라는 object의 key가 없기 때문임
 }
+
+/////////////////////////////////
+// reduce()
+// : 배열의 각 요소에 대해서 주어진 리듀서(reducer)함수를 실행하고, "하나의 결과값" 반환
+
+// reduce((acc,cur)=>{...})
+// -acc: 누적되는 값
+// -cur: 현재 요소
+
+const numbers2 = [1, 2, 3, 4, 5];
+const initialValue = 100;
+const result = numbers2.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, initialValue);
+console.log(result); //15
