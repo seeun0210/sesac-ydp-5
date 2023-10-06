@@ -3,6 +3,8 @@ import RefSample2 from './RefSample2';
 import RefSample3 from './RefSample3';
 import RefSample4 from './RefSample4';
 import Ex1 from './Ex1';
+import LifeCycleFunc from './LifeCycleFunc';
+import LifeCycleClass from './LifeCycleClass';
 function App() {
   return (
     <div className="App">
@@ -20,6 +22,12 @@ function App() {
       <hr />
       {/* 실습 */}
       <Ex1 />
+      <hr />
+      {/* 10/06 lifecycle 수업*/}
+      <LifeCycleFunc />
+      <hr />
+      {/* 10/06 lifecycle 수업*/}
+      <LifeCycleClass />
     </div>
   );
 }

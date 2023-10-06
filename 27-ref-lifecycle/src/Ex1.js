@@ -42,6 +42,9 @@ export default function Ex1() {
   const searchComment = () => {
     const searchResult = comments.filter((cmt) => {
       //cmt:{title:xxx,writer:xxx}
+
+      console.log(cmt);
+      //filter메서드의 경우 빈문자열에 대해서 검색하면 includes하면서 전체값이 나오게 된다.
       if (!cmt[searchType].includes(search)) {
         //검색결과가 없다면: null
         return null;
