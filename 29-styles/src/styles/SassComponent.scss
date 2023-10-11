@@ -1,0 +1,63 @@
+@import './variables.scss'; //SASS styling
+// 변수 선언 : $키워드 사용
+// $color-first: red;
+// $color-second: orange;
+// $color-third: yellow;
+// $animation-duration: 0.4s;
+// 믹스인(함수) 선언(정의)
+
+@import './utils';
+// @mixin box($size) {
+//   width: $size;
+//   height: $size;
+// }
+
+.container {
+  display: flex;
+  // 중첩이 가능하다! (box클래스는 컨테이너 안에 있는 박스를 의미함
+  //   부모 자식이 표현 가능하다!
+  .box {
+    // 믹스인 호출
+    @include box(150px);
+    // width: 100px;
+    // height: 100px;
+
+    // &:부모 선택자 참조해서 치환
+    // 즉 &.red===.box.red
+    &.red {
+      background-color: $color-first; //선언한 변수로 색 할당함
+    }
+    &.orange {
+      background-color: $color-second;
+    }
+    &.yellow {
+      background-color: $color-third;
+    }
+    &:hover {
+      // 이런식으로 전역에서 선언된 animation-duration이라는 변수에다가 *2를 하는 연산도 가능하다
+
+      $box-animation: $animation-duration * 2;
+      transform: translateY(-20px);
+      transition: transform $box-animation;
+    }
+  }
+}
+.btn {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.btn-primary {
+  // -확장: 기존 선택자 스타일을 다른 선택자에게 상속
+  // 여기에서는 .btn의 스타일을 .btn-primary에게 넘겨줌
+  @extend .btn;
+  background-color: $color-third;
+}
+
+@media (max-width:#{$breakpoint-sm}) {
+  // @media(max-width:360px)
+  .container {
+    flex-direction: column;
+  }
+}
