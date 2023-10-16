@@ -4,7 +4,8 @@ import UseCallbackEx2 from './components/UseCallbackEx2';
 import UseReducerEx from './components/UseReducerEx';
 import useTitle from './hooks/useTitle';
 import Faq from './components/Faq';
-import useToggle from './hooks/useToggle';
+import UseReducerLogin from './components/useReducerLogin';
+import Form from './components/react-hook-form/Form';
 function App() {
   useTitle('React Hooks 연습중입니다.');
   return (
@@ -21,6 +22,10 @@ function App() {
       <hr />
 
       <Faq />
+      <hr />
+      <UseReducerLogin />
+      <hr />
+      <Form />
     </div>
   );
 }
