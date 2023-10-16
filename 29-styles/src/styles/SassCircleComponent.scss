@@ -1,0 +1,77 @@
+@import './utils';
+@mixin move($size) {
+  animation: rotation#{$size} infinite 2s linear;
+}
+
+.pink {
+  position: relative;
+
+  background-color: pink;
+  @include circleSize(50px);
+  @include move('10');
+}
+.gold {
+  background-color: gold;
+  position: relative;
+  margin-left: 50px;
+  @include circleSize(50px);
+  @include move('20');
+}
+.green {
+  position: relative;
+  margin-left: 100px;
+  background-color: green;
+  @include circleSize(50px);
+  @include move('30');
+}
+@keyframes rotation10 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(100px, 0px);
+  }
+  50% {
+    transform: translate(50px, 100px);
+  }
+  75% {
+    transform: translate(0px, 100px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes rotation20 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(200px, 0px);
+  }
+  50% {
+    transform: translate(200px, 200px);
+  }
+  75% {
+    transform: translate(0px, 200px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes rotation30 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(300px, 0px);
+  }
+  50% {
+    transform: translate(300px, 300px);
+  }
+  75% {
+    transform: translate(0px, 300px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}

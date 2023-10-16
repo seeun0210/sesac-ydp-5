@@ -6,5 +6,6 @@
   "prettier.tabWidth": 2, // 탭 간격
   "prettier.singleQuote": true, // '': 단따옴표를 기본 값
   "prettier.trailingComma": "es5", // 객체, 배열, 함수 등의 후행에 쉼표
-  "prettier.semi": true // 세미콜론
+  "prettier.semi": true,
+  "git.ignoreLimitWarning": true // 세미콜론
 }

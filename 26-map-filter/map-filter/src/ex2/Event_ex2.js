@@ -87,7 +87,9 @@ export default function Ex2() {
             ref={refTitle}
           ></input>
         </label>
-        <button onClick={write}>작성</button>
+        <button type="button" onClick={write}>
+          작성
+        </button>
       </fieldset>
       <div>
         <select

@@ -1,0 +1,15 @@
+@import '~include-media/dist/include-media';
+.imageContainer {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  .item {
+    width: 100%;
+    height: 100%;
+  }
+  @include media('<768px') {
+    grid-template-columns: repeat(3, auto);
+  }
+  @include media('<532px') {
+    grid-template-columns: repeat(1, auto);
+  }
+}

@@ -6,6 +6,7 @@ import useTitle from './hooks/useTitle';
 import Faq from './components/Faq';
 import UseReducerLogin from './components/useReducerLogin';
 import Form from './components/react-hook-form/Form';
+import HookFormEx from './components/react-hook-form/HookFormEx';
 function App() {
   useTitle('React Hooks 연습중입니다.');
   return (
@@ -26,6 +27,8 @@ function App() {
       <UseReducerLogin />
       <hr />
       <Form />
+      <hr />
+      <HookFormEx />
     </div>
   );
 }

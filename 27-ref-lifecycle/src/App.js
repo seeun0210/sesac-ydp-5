@@ -5,6 +5,7 @@ import RefSample4 from './RefSample4';
 import Ex1 from './Ex1';
 import LifeCycleFunc from './LifeCycleFunc';
 import LifeCycleClass from './LifeCycleClass';
+import PostList from './ex/PostList';
 function App() {
   return (
     <div className="App">
@@ -28,6 +29,9 @@ function App() {
       <hr />
       {/* 10/06 lifecycle 수업*/}
       <LifeCycleClass />
+      <hr />
+      {/* 10/06 lifecycle 실습*/}
+      <PostList />
     </div>
   );
 }

@@ -265,3 +265,38 @@ const tri1 = new Triangle(3, 4);
 console.log(tri1.getAreaTriangle()); //6
 const r1 = new Circle(3, 4, 3);
 console.log(r1.getArea()); //14.13
+
+///////////////////////////////
+// 단축 평가
+// &&, ||
+
+// A && B: 두개의 피연산자 모두 True이면 True반환
+// A || B : 두개의 피연산자 중에서 하나만 True여도 True를 반환
+
+console.log(true && true); //true
+console.log(true && false); //false
+
+console.log(true || false); //true
+console.log(false || false); //false
+
+const xx = 5;
+const yy = 7;
+
+//삼항연산자 예시
+const result1 = xx > yy ? 'xx가 큼' : 'yy가 큼';
+console.log(result1); //xx가 큼
+
+//단축평가 (&&,논리곱)
+const result2 = xx > yy && 'xx가 큼'; // xx > yy의 결과가 false니까 뒤에껀 볼 것도 없이 false임
+console.log(result2);
+const result3 = xx < yy && 'yy가 큼'; //yy가 큼
+console.log(result3);
+
+// 단축평가(||,논리 합)->default value를 설정할 때 많이 사용함
+const result4 = xx || 100; //xx가 true니까 바로 5를 출력함
+console.log(result4);
+
+const nameEx = '홍길동';
+const nameEx2 = null;
+console.log(nameEx || '이름없음'); //홍길동
+console.log(nameEx2 || '이름없음'); //nameEx2는 null이니까 뒤에 '이름없음'까지 봄
