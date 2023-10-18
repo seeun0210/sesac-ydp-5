@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import App3 from './App3';
+import App4 from './App4';
 import { configureStore } from '@reduxjs/toolkit';
 import { composeWithDevTools } from 'redux-devtools-extension'; //이건 크롬 확장프로그램!
 import rootReducer from './store';
@@ -13,7 +13,7 @@ const store = configureStore({ reducer: rootReducer }, composeWithDevTools());
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App3 />
+      <App4 />
     </Provider>
   </React.StrictMode>
 );
