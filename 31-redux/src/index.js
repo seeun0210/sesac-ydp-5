@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import App4 from './App4';
+import Bank from './Bank';
 import { configureStore } from '@reduxjs/toolkit';
 import { composeWithDevTools } from 'redux-devtools-extension'; //이건 크롬 확장프로그램!
 import rootReducer from './store';
@@ -14,6 +15,8 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App4 />
+      <hr />
+      <Bank />
     </Provider>
   </React.StrictMode>
 );
