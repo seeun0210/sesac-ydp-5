@@ -1,0 +1,16 @@
+@server=http://localhost:8000
+@authToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhbmFuYSIsImlhdCI6MTY5Mzk5MTY5Nn0.D-mc5dzzNDvA334sEVOcPRwNju5zthc2eH30NCPxhGk
+
+### 로그인 요청
+POST {{server}}/login
+Content-Type: application/json; charset=UTF-8
+
+{
+    "id": "banana", 
+    "pw": "1234"
+}
+
+### 토큰 검증 요청
+POST {{server}}/token
+Content-Type: application/json; charset=UTF-8
+Authorization: Bearer {{authToken}}
