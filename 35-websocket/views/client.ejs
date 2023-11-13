@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Websocket채팅</title>
+  </head>
+  <body>
+    <h1>채팅</h1>
+    <ul></ul>
+
+    <form id="chat">
+      이름<input type="text" id="name" class="name" /><br />
+      내용<input type="text" id="message" class="message" /><br />
+      <button>전송</button>
+    </form>
+    <script>
+      const socket = new WebSocket('ws://localhost:8000');
+      console.log(socket); //클라이언트 소켓 객체
+      const chatForm = document.querySelector('#chat'); //폼 가져오기
+      const ul = document.querySelector('ul'); //채팅 내역을 보여주기 위한 ul 요소
+      socket.addEventListener('open', (event) => {
+        console.log('서버에 연결되었습니다.');
+      });
+      socket.addEventListener('message', (event) => {
+        // console.log(`서버로 부터 받은 메시지:${event.data}`);
+        const data = JSON.parse(event.data);
+        console.log(data);
+        const { msg, name } = data;
+        const li = document.createElement('li');
+        li.textContent = `${name}님 :: ${msg}`;
+        ul.appendChild(li);
+      });
+      socket.addEventListener('error', (event) => {
+        console.log('오류발생::', event.console.error);
+      });
+      socket.addEventListener('error', (event) => {
+        console.error('오류가 발생했습니다: ', event.error);
+      });
+      socket.addEventListener('close', (event) => {
+        console.log('서버와 연결이 종료되었습니다.');
+      });
+      chatForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const msg = chatForm.querySelector('#message');
+        const name = chatForm.querySelector('#name');
+        const data = { msg: msg.value, name: name.value };
+        console.log('보내려는 메시지 데이터::', data);
+        // 메시지 데이터를 웹 소켓 서버로 전송
+        // 웹 소켓 서버가 데이터를 쉽게 처리할 수 있ㄷ로고 (웹 소켓 서버가 js 언어를 쓰지 않을 수 있으니)
+        // JSON 형식의 텍스트 데이터로 변환(직렬화, Serialize)해서 웹서버로 전송
+        socket.send(JSON.stringify(data));
+        // input 초기화
+        msg.value = '';
+        name.value = '';
+      });
+    </script>
+  </body>
+</html>
