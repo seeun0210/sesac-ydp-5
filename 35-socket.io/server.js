@@ -59,6 +59,25 @@ io.on('connection', (socket) => {
       updateList();
     }
   });
+  socket.on('sendToAll', (data) => {
+    console.log(data);
+    io.emit('message', data);
+  });
+  socket.on('sendToOne', (data) => {
+    console.log(data);
+    const { receiver, content, nickName } = data;
+
+    // 송신자의 소켓 ID를 찾기
+    const senderSocketId = Object.keys(nickObjs).find(
+      (key) => nickObjs[key] === nickName
+    );
+
+    // 해당 소켓에 메시지 전송
+    io.to(senderSocketId).emit('privateMessage', { content, nickName });
+
+    // 수신자에게도 메시지 전송
+    io.to(receiver).emit('privateMessage', { content, nickName });
+  });
   socket.on('disconnect', () => {
     console.log('접속 끊김::', socket.id);
     io.emit('notice', `${nickObjs[socket.id]}님이 퇴장하셨습니다.`);
