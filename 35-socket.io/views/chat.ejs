@@ -31,7 +31,7 @@
       }
 
       .entry-box {
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -54,11 +54,10 @@
       .chat-list {
         background-color: #f9f9f9;
         width: 100%;
-        height: 300px;
+        height: 500px;
         padding: 10px;
         overflow-y: auto;
       }
-
       .notice {
         text-align: center;
         color: #005397;
@@ -92,7 +91,7 @@
       .my-chat,
       .other-chat,
       .private-chat {
-        margin-top: 10px;
+        margin-top: 5px;
         display: flex;
         justify-content: flex-end;
       }
@@ -140,7 +139,7 @@
     </style>
   </head>
   <body>
-    <h1></h1>
+    <h1>My Chat</h1>
 
     <main class="chat-box">
       <div class="entry-box">
@@ -199,19 +198,23 @@
         const messageInput = document.querySelector('#message');
         const receiver = document.querySelector('#nick-list').value;
         console.log(receiver);
-        if (receiver === 'all') {
-          socket.emit('sendToAll', {
-            nickName: document.querySelector('#nickname').value,
-            content: messageInput.value,
-          });
-          messageInput.value = '';
-        } else {
-          socket.emit('sendToOne', {
-            receiver,
-            content: messageInput.value,
-            nickName: document.querySelector('#nickname').value,
-          });
-          messageInput.value = '';
+
+        // 메시지 입력 필드가 비어 있지 않은 경우에만 전송
+        if (messageInput.value.trim() !== '') {
+          if (receiver === 'all') {
+            socket.emit('sendToAll', {
+              nickName: document.querySelector('#nickname').value,
+              content: messageInput.value,
+            });
+            messageInput.value = '';
+          } else {
+            socket.emit('sendToOne', {
+              receiver,
+              content: messageInput.value,
+              nickName: document.querySelector('#nickname').value,
+            });
+            messageInput.value = '';
+          }
         }
       }
 
@@ -229,7 +232,9 @@
       socket.on('updateNicks', (nickObjs) => {
         let options = `<option value="all">전체</option>`;
         for (let key in nickObjs) {
-          options += `<option value="${key}">${nickObjs[key]}</option>`;
+          if (myNick !== nickObjs[key]) {
+            options += `<option value="${key}">${nickObjs[key]}</option>`;
+          }
         }
         document.querySelector('#nick-list').innerHTML = options;
       });
@@ -247,6 +252,7 @@
         document.querySelector('.chat-list').appendChild(messageDiv);
 
         const chatList = document.querySelector('.chat-list');
+        //메세지가 많아져서 스크롤이 생기더라도 하단 고정
         chatList.scrollTop = chatList.scrollHeight;
       });
       socket.on('privateMessage', (data) => {

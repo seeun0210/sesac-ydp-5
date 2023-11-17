@@ -73,14 +73,19 @@ io.on('connection', (socket) => {
     );
 
     // 해당 소켓에 메시지 전송
-    io.to(senderSocketId).emit('privateMessage', { content, nickName });
-
+    // io.to(senderSocketId).emit('privateMessage', { content, nickName });
+    socket.emit('privateMessage', { content, nickName });
     // 수신자에게도 메시지 전송
     io.to(receiver).emit('privateMessage', { content, nickName });
   });
   socket.on('disconnect', () => {
     console.log('접속 끊김::', socket.id);
-    io.emit('notice', `${nickObjs[socket.id]}님이 퇴장하셨습니다.`);
+
+    // 'undefined'이면 '알 수 없음'으로 대체
+    const disconnectedNickname =
+      nickObjs[socket.id] !== undefined ? nickObjs[socket.id] : '(알 수 없음)';
+
+    io.emit('notice', `${disconnectedNickname}님이 퇴장하셨습니다.`);
     delete nickObjs[socket.id];
     updateList();
   });
